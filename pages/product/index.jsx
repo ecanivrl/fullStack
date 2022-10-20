@@ -23,19 +23,28 @@ const Index = () => {
                     example here. Maybe you can solve other mysteries behind it. :)
                 </p>
                 <div>
-                    <h4 className="text-xl font-bold">Choose the size</h4>
+                    <h4 className="text-xl font-bold mb-5">Choose the size</h4>
                     <div className="flex items-center gap-x-10 md:justify-start justify-center ">
                         <div className="relative w-8 h-8">
                             <Image src={"/images/size.png"} alt="size" layout="fill" />
-                            <span className="spo">small</span>
+                            <span className="spo -mt-4 ml-6 hover:bg-">small</span>
+                            <div className="relative ">
+                                <span className="absolute top-[1px]  right-[6px] h-2 w-2 origin-top-left -rotate-90 rounded-bl-[120px] bg-secondary" />
+                            </div>
                         </div>
                         <div className="relative w-12 h-12">
                             <Image src={"/images/size.png"} alt="size" layout="fill" />
-                            <span className="spo">medium</span>
+                            <span className="spo -mt-3 -mr-2">medium</span>
+                            <div className="relative ">
+                                <span className="absolute top-[4px]  right-[14px] h-2 w-2 origin-top-left -rotate-90 rounded-bl-[120px] bg-secondary" />
+                            </div>
                         </div>
                         <div className="relative w-16 h-16">
                             <Image src={"/images/size.png"} alt="size" layout="fill" />
-                            <span className="spo top-2">large</span>
+                            <span className="spo -mt-1">large</span>
+                            <div className="relative ">
+                                <span className="absolute top-3  right-[5px] h-2 w-2 origin-top-left -rotate-90 rounded-bl-[120px] bg-secondary" />
+                            </div>
                         </div>
                     </div>
                 </div>

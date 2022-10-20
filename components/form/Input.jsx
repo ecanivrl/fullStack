@@ -16,7 +16,7 @@ const Input = (props) => {
                     ""
                 ) : (
                     <span
-                        className="absolute top-0 left-0 px-4 text-sm h-full flex items-center peer-focus:h-7
+                            className="absolute -top-1 left-0 px-4 text-xs h-full flex items-center peer-focus:h-7
                 peer-focus:text-xs peer-focus:-top-1 peer-valid:h-7 peer-valid:xs transition-all duration-500 peer-focus:text-gray-400"
                     >
                         {placeholder}

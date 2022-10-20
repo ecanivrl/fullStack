@@ -33,7 +33,7 @@ const Reservation = (props) => {
                                 key={input.id}
                                 {...input}
                                 className={`${input.id === 1 ? "lg:rounded-tl-[30px] rounded-none" : ""
-                                    }${input.id === 5 ? "pt-[31px]" : ""} `}
+                                    }${input.id === 5 ? "pt-[25px]" : ""} `}
                             />
                         ))}
                     </div>
