@@ -26,7 +26,7 @@ const Index = () => {
                     <h4 className="text-xl font-bold mb-5">Choose the size</h4>
                     <div className="flex items-center gap-x-10 md:justify-start justify-center ">
                         <div className="relative w-8 h-8">
-                            <Image src={"/images/size.png"} alt="size" layout="fill" />
+                            <Image src={"/images/size.png"} alt="size" layout="fill" objectFit="contain" />
                             <span className="spo -mt-4 ml-6 hover:bg-">small</span>
                             <div className="relative ">
                                 <span className="absolute top-[1px]  right-[6px] h-2 w-2 origin-top-left -rotate-90 rounded-bl-[120px] bg-secondary" />

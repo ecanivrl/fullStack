@@ -13,7 +13,7 @@ const Carosel = () => {
         autoplay: true,
         speed: 800,
         autoplaySpeed: 3500,
-        customPaging: (i) => <div className="w-3 h-3 bg-white rounded-full"></div>,
+        customPaging: (i) => <div className="w-2 h-2 bg-white rounded-full !active:h-3 !active:w-3"></div>,
     };
 
     return (
