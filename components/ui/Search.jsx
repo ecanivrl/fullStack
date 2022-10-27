@@ -17,7 +17,7 @@ const Search = ({ setIsSearchModal }) => {
                     />
                     <div>
                         <ul className="">
-                            <li className="flex justify-between items-center p-1 mx-5 hover:bg-secondary transition-all">
+                            <li className="flex justify-between items-center p-1 w-full px-5  hover:rounded-xl hover:bg-secondary transition-all">
                                 <div className="relative flex">
                                     <Image
                                         src={"/images/pizza.png"}
@@ -29,7 +29,7 @@ const Search = ({ setIsSearchModal }) => {
                                 <span className="font-bold">Good Pizza</span>
                                 <span className="font-bold">$10</span>
                             </li>
-                            <li className="flex justify-between items-center p-1 hover:bg-secondary transition-all">
+                            <i className="flex justify-between items-center p-1 w-full px-5  hover:rounded-xl hover:bg-secondary transition-all">
                                 <div className="relative flex">
                                     <Image
                                         src={"/images/pizza.png"}
@@ -40,8 +40,8 @@ const Search = ({ setIsSearchModal }) => {
                                 </div>
                                 <span className="font-bold">Good Pizza</span>
                                 <span className="font-bold">$10</span>
-                            </li>
-                            <li className="flex justify-between items-center p-1 hover:bg-secondary transition-all">
+                            </i>
+                            <li className="flex justify-between items-center p-1 w-full px-5 hover:rounded-xl hover:bg-secondary transition-all">
                                 <div className="relative flex">
                                     <Image
                                         src={"/images/pizza.png"}
