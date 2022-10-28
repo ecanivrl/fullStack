@@ -6,7 +6,7 @@ const MenuItem = () => {
     return (
         <div className="relative">
             <div className=" rounded-3xl">
-                <div className="bg-primary rounded-3xl hover:scale-105  relative ">
+                <div className="bg-primary rounded-3xl relative ">
                     <div className="w-full  bg-ıtem h-[190px] grid place-content-center rounded-bl-[46px] rounded-tl-2xl rounded-tr-2xl">
                         <div className="relative w-36 h-36 hover:scale-110 transition-all">
                             <Image

@@ -1,14 +1,15 @@
 import React from "react";
 
 const Input = (props) => {
-    const { type, placeholder, className, ...inputProps } = props;
-    console.log(type);
+    const { type, placeholder, errorMessage, className, maxlength, ...inputProps } = props;
     return (
         <div className="w-full">
-            <label className="relative block cursor-text w-full">
+            <label className="relative block cursor-text w-full  ">
                 <input
+                    value={"bg-white"}
                     type={type}
-                    className={`h-14 w-full border border-secondary focus:outline-[#E94560] px-4 peer pt-3 ${className}`}
+                    className={`focus:bg-white bg-white h-14 w-full border outline-none px-4 peer pt-3 ${errorMessage ? "border-red-500" : "border-secondary"
+                        } ${className}`}
                     required
                     {...inputProps}
                 />
@@ -27,6 +28,7 @@ const Input = (props) => {
                         {placeholder}
                     </span>
                 )}
+                {<span className="text-xs text-danger">{errorMessage}</span>}
             </label>
         </div>
     );
