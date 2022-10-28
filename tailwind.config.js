@@ -12,10 +12,9 @@ module.exports = {
           sm: "640px",
           md: "768px",
           lg: "1024px",
-          xl: "140px",
+          xl: "1140px",
           "2xl": "1040",
-
-        }
+        },
       },
       colors: {
         sar: "#FFFF00",
@@ -23,13 +22,14 @@ module.exports = {
         primary: "#222831",
         ıtem: "#F1F2F3",
         suat: "#39816A",
-        stbg: "#8AC481"
-      }
+        stbg: "#8AC481",
+        danger: "#ff0000",
+      },
     },
     fontFamily: {
       dancing: ["Dancing Script", "cursive"],
-      sans: ["Open Sans", "sans-serif"]
-    }
+      sans: ["Open Sans", "sans-serif"],
+    },
   },
   plugins: [],
-}
+};
