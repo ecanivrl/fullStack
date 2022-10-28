@@ -2,41 +2,46 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 * {
   box-sizing: border-box;
 }
 
-.btn-primary{
-  @apply text-white px-[30px] py-2 rounded-3xl bg-secondary cursor-pointer hover:text-primary transition-all hover:bg-[#FFFF00]
+.btn-primary {
+  @apply text-white px-[30px] py-2 rounded-3xl bg-secondary cursor-pointer hover:text-primary transition-all hover:bg-[#FFFF00];
 }
 
-.btn-menu{
-  @apply px-6 py-2 bg-primary rounded-3xl text-white
+.btn-menu {
+  @apply px-6 py-2 bg-primary rounded-3xl text-white;
 }
-.spo{
-  @apply absolute -top-1 -right-6 text-xs bg-secondary rounded-full px-[5px] font-medium
-}
-
-.lix{
-  @apply hover:text-secondary hover:scale-150 transition-all duration-500
+.spo {
+  @apply absolute -top-1 -right-6 text-xs bg-secondary rounded-full px-[5px] font-medium;
 }
 
-.slick-dots{
-  @apply !flex justify-start w-full
+.lix {
+  @apply hover:text-secondary hover:scale-150 transition-all duration-500;
 }
 
-.slick-dots .slick-active div{
-  @apply bg-secondary 
+.toolTip {
+  @apply relative w-28 h-28 border-4  border-secondary rounded-full mt-8
+  before:content-[''] before:absolute before:top-0 flex justify-center before:-translate-y-3 before:rotate-45
+   before:bg-secondary before:w-5 before:h-5;
 }
 
-.slick-dots div{
-  @apply !m-0 !mt-4 
+.slick-dots {
+  @apply !flex justify-start w-full;
+}
+
+.slick-dots .slick-active div {
+  @apply bg-secondary;
+}
+
+.slick-dots div {
+  @apply !m-0 !mt-4;
 }
