@@ -1,7 +1,6 @@
-import Head from 'next/head'
-import Header from '../components/layout/Header'
-import Reservation from '../components/Reservation'
-import Home from "./home"
+import Head from "next/head";
+import Header from "../components/layout/Header";
+import Home from "./home";
 
 export default function Index() {
   return (
@@ -13,7 +12,6 @@ export default function Index() {
       </Head>
       <Header />
       <Home />
-      <Reservation />
     </div>
-  )
+  );
 }
