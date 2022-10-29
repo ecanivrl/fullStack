@@ -14,7 +14,17 @@ const MenuWrappaer = () => {
                     <button className="px-6 py-2 rounded-3xl">Drink</button>
                 </div>
             </div>
-            <div className="mt-8 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 gap-y-6 mb-10">
+            <div className="mt-8 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 gap-y-10 mb-10">
+                <MenuItem />
+                <MenuItem />
+                <MenuItem />
+                <MenuItem />
+                <MenuItem />
+                <MenuItem />
+                <MenuItem />
+                <MenuItem />
+                <MenuItem />
+                <MenuItem />
                 <MenuItem />
                 <MenuItem />
                 <MenuItem />
