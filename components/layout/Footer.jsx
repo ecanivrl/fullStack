@@ -74,7 +74,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <p className="text-center mt-10 hover:scale-105 underline hover:decoration-secondary underline-offset-8 hover:underline-offset-4">
+                <p className="text-center mt-10 hover:scale-105 underline underline-offset-8 hover:underline-offset-4">
                     © 2022 All Rights Reserved By Free Html Templates
                 </p>
             </div>
