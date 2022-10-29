@@ -3,7 +3,7 @@ import React from "react";
 
 const CustomerItem = ({ imgSrc }) => {
     return (
-        <div className="mt-5">
+        <div className="mt-5 mx-4">
             <div className="p-6 bg-primary text-white rounded-md">
                 <div>
                     <p>
