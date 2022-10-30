@@ -17,6 +17,10 @@ body {
   @apply text-white px-[30px] py-2 rounded-3xl bg-secondary cursor-pointer hover:text-primary transition-all hover:bg-[#FFFF00];
 }
 
+.btn-github {
+  @apply text-white px-[30px] py-2 rounded-3xl bg-primary   hover:bg-[#153462] cursor-pointer hover:text-white transition-all;
+}
+
 .btn-menu {
   @apply px-6 py-2 bg-primary rounded-3xl text-white;
 }

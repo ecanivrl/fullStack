@@ -41,12 +41,10 @@ const Header = () => {
                     </ul>
                 </nav>
                 <div className="flex gap-x-4 items-center">
+                    <Link href="/auth/login">
+                        <span className="cursor-pointer"> <FaUser className="lix" />{" "}</span>
+                    </Link>
                     <a href="#">
-                        {" "}
-                        <FaUser className="lix" />{" "}
-                    </a>
-                    <a href="#">
-                        {" "}
                         <FaShoppingCart className="lix" />{" "}
                     </a>
                     <button onClick={() => setIsSearchModal(true)}>
