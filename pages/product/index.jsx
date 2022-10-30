@@ -4,9 +4,10 @@ import Title from "../../components/ui/Title";
 
 const Index = () => {
     return (
-        <div className="flex h-screen items-center  flex-wrap sm:py-10 py-0">
+        <div className="flex h-screen items-center  flex-wrap sm:py-20 py-0">
             <div className="relative md:flex-1 w-[60%] sm:h-[60%] h-[40%] mx-auto  ">
                 <Image
+                    priority
                     src={"/images/pizza.png"}
                     alt="detay"
                     layout="fill"
