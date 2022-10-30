@@ -13,7 +13,7 @@ const Input = (props) => {
         <div className="w-full">
             <label className="relative block cursor-text w-full  ">
                 <input
-                    value={"bg-white"}
+                    // value={"bg-white"}
                     type={type}
                   className={`focus:bg-white bg-white h-14 w-full border outline-none px-4 peer pt-3 ${errorMessage ? "border-red-500" : "border-secondary"
                       } ${className}`}

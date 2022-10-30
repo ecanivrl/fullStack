@@ -24,6 +24,7 @@ module.exports = {
         suat: "#39816A",
         stbg: "#8AC481",
         danger: "#ff0000",
+        git: "#25316D"
       },
     },
     fontFamily: {
