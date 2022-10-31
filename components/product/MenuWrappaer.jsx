@@ -18,16 +18,6 @@ const MenuWrappaer = () => {
                 <MenuItem />
                 <MenuItem />
                 <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
-                <MenuItem />
             </div>
         </div>
     );

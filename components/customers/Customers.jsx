@@ -36,8 +36,8 @@ const Customers = () => {
         autoplay: true,
         autoplaySpeed: 3500,
         arrows: true,
-        nextArrow: <NextBtn />,
-        prevArrow: <PrevBtn />,
+        nextArrow: <PrevBtn />,
+        prevArrow: <NextBtn />,
         responsive: [
             {
                 breakpoint: 768,

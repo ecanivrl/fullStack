@@ -4,7 +4,6 @@ import Title from "./ui/Title";
 import { FaTabletAlt } from "react-icons/fa";
 import { useFormik } from "formik";
 import { reservationSchema } from "../schema/reservation";
-import { number } from "yup/lib/locale";
 
 const Reservation = (props) => {
     const onSubmit = async (values, actions) => {
