@@ -7,6 +7,7 @@ const Input = (props) => {
         errorMessage,
         className,
         maxlength,
+        touched,
         ...inputProps
     } = props;
     return (
@@ -15,7 +16,7 @@ const Input = (props) => {
                 <input
                     // value={"bg-white"}
                     type={type}
-                  className={`focus:bg-white bg-white h-14 w-full border outline-none px-4 peer pt-3 ${errorMessage ? "border-red-500" : "border-secondary"
+                    className={`focus:bg-white bg-white h-14 w-full border outline-none px-4 peer pt-3 ${touched && errorMessage ? "border-red-500" : "border-secondary"
                       } ${className}`}
                   required
                   {...inputProps}
@@ -35,7 +36,7 @@ const Input = (props) => {
                       {placeholder}
                   </span>
               )}
-              {<span className="text-xs text-danger">{errorMessage}</span>}
+                {touched && <span className="text-xs text-danger">{errorMessage}</span>}
           </label>
       </div>
   );
