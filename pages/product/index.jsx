@@ -51,15 +51,15 @@ const Index = () => {
                 </div>
                 <div className="flex gap-x-4 my-6 md:justify-start justify-center">
                     <label className="flex items-center gap-x-1">
-                        <input type={"checkbox"} className="w-3 h-3 accent-secondary" />
+                        <input type={"checkbox"} className="w-4 h-4 accent-secondary" />
                         <span className="text-sm font-semibold">Ketçap</span>
                     </label>
                     <label className="flex items-center gap-x-1">
-                        <input type={"checkbox"} className="w-3 h-3 accent-secondary" />
+                        <input type={"checkbox"} className="w-4 h-4 accent-secondary" />
                         <span className="text-sm font-semibold">Peynir</span>
                     </label>
                     <label className="flex items-center gap-x-1">
-                        <input type={"checkbox"} className="w-3 h-3 accent-secondary" />
+                        <input type={"checkbox"} className="w-4 h-4 accent-secondary" />
                         <span className="text-sm font-semibold">Kaşar</span>
                     </label>
                 </div>

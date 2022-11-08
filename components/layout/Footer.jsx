@@ -1,10 +1,15 @@
 import React from "react";
 import Title from "../ui/Title";
+import { useRouter } from "next/router";
 
 const Footer = () => {
+    // ${router.asPath === "/profile" ? "mt-40" : "container mx-auto pt-16 pb-6"}
+
+    const router = useRouter()
     return (
         <div className="bg-primary text-white">
-            <div className="container mx-auto pt-16 pb-6">
+            <div className={`${router.asPath === "/cart" ? "py-6" : "container mx-auto pt-16 pb-6"}
+                             `}>
                 <div className="flex md:justify-between justify-center text-center flex-wrap md:gap-y-0 gap-y-6 ">
                     <div className="md:flex-1">
                         <Title addClass="text-[30px]">Contact Us</Title>
@@ -74,7 +79,7 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <p className="text-center mt-10 hover:scale-105 underline underline-offset-8 hover:underline-offset-4">
+                <p className="text-center mt-10  underline underline-offset-8 hover:underline-offset-4">
                     © 2022 All Rights Reserved By Free Html Templates
                 </p>
             </div>

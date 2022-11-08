@@ -21,10 +21,10 @@ module.exports = {
         secondary: "#FCE700",
         primary: "#222831",
         ıtem: "#F1F2F3",
-        suat: "#39816A",
-        stbg: "#8AC481",
+        darkGreen: "#1A4D2E",
         danger: "#ff0000",
-        git: "#25316D"
+        git: "#25316D",
+        bej: "#90A17D"
       },
     },
     fontFamily: {
