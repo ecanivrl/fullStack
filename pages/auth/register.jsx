@@ -8,7 +8,7 @@ import Link from 'next/link'
 const Register = () => {
 
     const onSubmit = async (values, actions) => {
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        await new Promise((resolve) => setTimeout(resolve, 1100));
         actions.resetForm();
     };
 
@@ -79,7 +79,7 @@ const Register = () => {
                     <button className='btn-primary'><i className='fa fa-sign-in mr-3'></i> REGISTER</button>
                     <button className='btn-github'> <i className='fa fa-github mr-3'></i> GITHUB</button>
                     <Link href="/auth/login">
-                        <span className='text-sm text-primary underline underline-offset-4 hover:decoration-secondary hover:decoration-2 cursor-pointer'>Do you  have a account ?</span>
+                        <span className='text-sm text-gray-500 underline   cursor-pointer'>Do you  have a account ?</span>
                     </Link>
                 </div>
             </form>

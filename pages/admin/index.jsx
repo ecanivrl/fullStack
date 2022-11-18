@@ -5,9 +5,11 @@ import { useFormik } from "formik";
 import { adminSchema } from "../../schema/admin";
 import Link from "next/link";
 
+
+// ADMİN LOGİN
 const Login = () => {
     const onSubmit = async (values, actions) => {
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        await new Promise((resolve) => setTimeout(resolve, 1100));
         actions.resetForm();
     };
 
@@ -60,12 +62,12 @@ const Login = () => {
                     ))}
                 </div>
                 <div className="flex flex-col w-full gap-y-2 mt-6">
-                    <button className="btn-primary !bg-green-600  !text-white">
+                    <button className="btn-primary bg-secondary  !text-white">
                         <i className="fa fa-sign-in mr-3 hover:-rotate-90 text-xl"></i>{" "}
                         LOGIN
                     </button>
                     <Link href="/">
-                        <span className="text-sm text-primary underline underline-offset-4 hover:decoration-secondary hover:decoration-2 cursor-pointer">
+                        <span className="text-sm text-gray-500 underline cursor-pointer">
                             Go to Home Page
                         </span>
                     </Link>

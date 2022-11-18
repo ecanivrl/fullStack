@@ -14,10 +14,9 @@ const Input = (props) => {
         <div className="w-full">
             <label className="relative block cursor-text w-full  ">
                 <input
-                    // value={"bg-white"}
                     type={type}
-                    className={`focus:bg-white bg-white h-14 w-full border outline-none px-4 peer pt-3 ${touched && errorMessage ? "border-red-500" : "border-secondary"
-                      } ${className}`}
+                    className={`focus:bg-white caret-secondary bg-white h-14 w-full border outline-none px-4 peer pt-3 ${touched && errorMessage ? "border-red-500" : "border-secondary"
+                        }  ${className}`}
                   required
                   {...inputProps}
               />
