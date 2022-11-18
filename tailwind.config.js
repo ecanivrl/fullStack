@@ -24,7 +24,8 @@ module.exports = {
         darkGreen: "#1A4D2E",
         danger: "#ff0000",
         git: "#25316D",
-        bej: "#90A17D"
+        bej: "#90A17D",
+        success: "#00ff00"
       },
     },
     fontFamily: {

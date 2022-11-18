@@ -26,23 +26,33 @@ const Header = () => {
                         }`}
                 >
                     <ul className="flex gap-x-2 sm:flex-row flex-col items-center">
-                        <li className="px-[5px] py-[10px] uppercase hover:text-secondary cursor-pointer">
+                        <li className={`px-[5px] py-[10px] uppercase hover:text-secondary cursor-pointer
+                        ${router.asPath === "/" ? "text-secondary" : ""}`}>
                             <Link href="/">Home</Link>
                         </li>
-                        <li className="px-[5px] py-[10px] uppercase hover:text-secondary cursor-pointer">
+                        <li className={`px-[5px] py-[10px] uppercase hover:text-secondary cursor-pointer
+                        ${router.asPath === "/menu" ? "text-secondary" : ""}`}>
                             <Link href="/menu">Menu</Link>
                         </li>
-                        <li className="px-[5px] py-[10px] uppercase hover:text-secondary cursor-pointer">
+                        <li className={`px-[5px] py-[10px] uppercase hover:text-secondary cursor-pointer
+                        ${router.asPath === "/about" ? "text-secondary" : ""}`}>
                             <Link href="/about">About</Link>
                         </li>
-                        <li className="px-[5px] py-[10px] uppercase hover:text-secondary cursor-pointer">
+                        <li className={`px-[5px] py-[10px] uppercase hover:text-secondary cursor-pointer
+                        ${router.asPath === "/reservation" ? "text-secondary" : ""}`}>
                             <Link href="/reservation">Book Table</Link>
                         </li>
                     </ul>
                 </nav>
                 <div className="flex gap-x-4 items-center">
                     <Link href="/auth/login">
-                        <span className="cursor-pointer flex flex-col justify-center items-center gap-y-1"> <FaUser className="lix" /> <i className="text-xs font-thin">Login</i></span>
+                        <span className="cursor-pointer flex flex-col justify-center items-center gap-y-1">
+                            <FaUser className="lix" />
+                            {/* {router.asPath === "/" ? (
+                                <i className="text-xs font-thin">Login</i>
+                            ) : ("")} */}
+
+                        </span>
                     </Link>
                     <Link href="/cart">
                         <span>  <FaShoppingCart className="lix" /></span>

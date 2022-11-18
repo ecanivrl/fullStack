@@ -4,9 +4,9 @@ import Title from '../../components/ui/Title'
 
 const Cart = () => {
     return (
-        <div className='min-h-[calc(100vh_-_373px)] px-4'>
+        <div className='min-h-[calc(100vh_-_373px)] px-4 bg-red-500'>
             <div className='flex justify-between items-center flex-col md:flex-row'>
-                <div className='min-h-[calc(100vh_-_373px)] flex flex-1 items-center p-10 overflow-x-auto w-full -mt-20 sm:mt-0'>
+                <div className='min-h-[calc(100vh_-_373px)] flex flex-1 items-center p-10 overflow-x-auto scrollbar-none w-full -mt-20 sm:mt-0'>
                     <table className='w-full text-sm text-center text-gray-500  min-w-[1000px]'>
                         <thead className='text-xs text-gray-400 bg-gray-700 uppercase border-white border-b-8'>
                             <tr>

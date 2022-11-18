@@ -5,11 +5,12 @@ import Account from "../../components/profile/Account"
 import Order from "../../components/profile/Order";
 import Password from "../../components/profile/Password";
 
+
 const Profile = () => {
     const [tabs, setTabs] = useState(0);
 
     return (
-        <div className={`${tabs === 2 ? "-mt-16" : ""}`}>
+        <div className={`${tabs === 2 ? "" : ""}`}>
             <div className="flex px-10 min-h-[calc(100vh_-_233px)] flex-col md:flex-row py-20">
                 <div className={"md:w-80 w-full flex-shrink-0  mx-auto"}>
                     <div className="relative flex flex-col items-center px-10 py-5 border border-secondary
@@ -67,9 +68,8 @@ const Profile = () => {
                 </div>
                 {tabs === 0 && (<Account />)}
                 {tabs === 1 && (<Password />)}
+                {tabs === 2 && (<Order />)}
             </div>
-            {tabs === 2 && (<Order />)}
-
         </div>
     );
 };

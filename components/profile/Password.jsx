@@ -49,7 +49,7 @@ const Password = () => {
         <form
             onSubmit={handleSubmit}
             className="sm:p-5 p-0 flex-1 mb-5">
-            <Title className="text-center sm:mt-2 mx-auto mt-5">LOGIN</Title>
+            <Title className="text-center sm:mt-2 mx-auto mt-5">Password</Title>
             <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mt-4">
                 {inputs.map((input) => (
                     <Input key={input.id} {...input} onBlur={handleBlur} onChange={handleChange}

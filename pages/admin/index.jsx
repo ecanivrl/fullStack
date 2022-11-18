@@ -5,6 +5,8 @@ import { useFormik } from "formik";
 import { adminSchema } from "../../schema/admin";
 import Link from "next/link";
 
+
+// ADMİN LOGİN
 const Login = () => {
     const onSubmit = async (values, actions) => {
         await new Promise((resolve) => setTimeout(resolve, 1100));

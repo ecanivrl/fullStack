@@ -3,7 +3,7 @@ import Image from 'next/image'
 const Index = () => {
     return (
         <div className='overflow-auto'>
-            <div className='flex justify-center items-center flex-col p-10 min-h-[calc(100vh_-_373px)] min-w-[1000px]'>
+            <div className='flex justify-center items-center flex-col p-10 min-h-[calc(100vh_-_373px)] min-w-[1000px]z'>
                 <div className='flex flex-1 items-center  w-full max-h-28  '>
                     <table className='w-full text-sm text-center text-gray-500 '>
                         <thead className='text-xs text-gray-400 bg-gray-700 uppercase border-white border-b-8'>

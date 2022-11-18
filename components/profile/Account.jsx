@@ -3,9 +3,10 @@ import Input from '../form/Input'
 import Title from '../ui/Title'
 import { useFormik } from "formik";
 import { profileSchema } from "../../schema/profile";
-import { number } from 'yup';
+import { useRouter } from 'next/router';
 
 const Account = () => {
+    const router = useRouter()
 
     const onSubmit = async (values, actions) => {
         await new Promise((resolve) => setTimeout(resolve, 1100));
