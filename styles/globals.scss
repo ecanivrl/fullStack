@@ -39,7 +39,7 @@ body {
 }
 
 .slick-dots {
-  @apply !flex justify-start w-full;
+  @apply flex justify-start w-full;
 }
 
 .slick-dots .slick-active div {
@@ -47,7 +47,7 @@ body {
 }
 
 .slick-dots div {
-  @apply !m-0 !mt-4;
+  @apply m-0 mt-4;
 }
 
 
@@ -55,4 +55,23 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+.custom-scrollbar {
+  &::-webkit-scrollbar {
+    height: 10px;
+  }
+  &::-webkit-scrollbar-track:hover {
+    background: #000;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #999;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ffcc48;
+    border-radius: 50px;
+  }
 }
