@@ -75,3 +75,8 @@ input::-webkit-inner-spin-button {
     border-radius: 50px;
   }
 }
+
+
+.grid-cols-ese {
+  grid-template-columns: repeat(auto-fill, 350px);
+}

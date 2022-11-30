@@ -1,13 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
 
 const MenuItem = () => {
     return (
-        <div className="relative">
-            <div className=" rounded-3xl">
+        <div className="relative px-3 sm:px-0">
+            <div className=" rounded-2xl">
                 <div className="bg-primary rounded-3xl relative ">
-                    <div className="w-full  bg-ıtem h-[190px] grid place-content-center rounded-bl-[46px] rounded-tl-2xl rounded-tr-2xl">
+                    <div className="w-full  bg-ıtem h-[180px] grid place-content-center rounded-bl-[46px] rounded-tl-2xl rounded-tr-2xl">
+                        <Link href={"/product"}>
                         <div className="relative w-36 h-36 hover:scale-110 transition-all">
                             <Image
                                 src={"/images/pizza.png"}
@@ -16,6 +18,7 @@ const MenuItem = () => {
                                 objectFit="cover"
                             />
                         </div>
+                        </Link>
                     </div>
                     <div className="p-[25px] text-ıtem">
                         <h4 className="text-xl font-semibold">Delicious Pizza</h4>
@@ -23,7 +26,6 @@ const MenuItem = () => {
                             It is not possible to reduce digital transformation to a few
                             technologies, but the groundbreaking influence of web 2.0, mobile,
                             broadband internet, cloud computing, digital media, big data,
-                            artificial intelligence, augmented reality, internet of things and
                             3D printers has started a new era.
                         </p>
                         <div className="flex justify-between items-center mt-4">
