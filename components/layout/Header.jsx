@@ -5,12 +5,17 @@ import { FaUser, FaShoppingCart } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { ImSearch } from "react-icons/im";
 import { AiOutlineClose } from "react-icons/ai";
+import { BsCart3 } from "react-icons/bs"
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { GiShoppingCart } from "react-icons/gi"
 
 const Header = () => {
     const [isSearchModal, setIsSearchModal] = useState(false);
     const [isMenuModal, setIsMenuModal] = useState(false);
+
+    const cart = useSelector((state) => state.cart)
 
     const router = useRouter();
 
@@ -55,7 +60,16 @@ const Header = () => {
                         </span>
                     </Link>
                     <Link href="/cart">
-                        <span>  <FaShoppingCart className="lix" /></span>
+                        <span className="relative">  <GiShoppingCart size={25} className={`lix hover:translate-x-2 duration-1000 transition-all
+                         ${router.asPath === "/cart" ? "text-secondary" : ""}`} />
+                            {cart.products.length > 0 ? (
+                                <span className="w-4 h-4 text-xs grid place-content-center rounded-full
+                                bg-secondary absolute -top-3 -right-2 text-black font-semibold">{cart.products.length}</span>
+                            ) :
+                                <span className="w-4 h-4 text-xs grid place-content-center rounded-full
+                            bg-secondary absolute -top-3 -right-2 text-black font-semibold">0</span>
+                            }
+                        </span>
                     </Link>
                     <button onClick={() => setIsSearchModal(true)}>
                         {" "}

@@ -29,7 +29,7 @@ body {
 }
 
 .lix {
-  @apply hover:text-secondary hover:scale-150 transition-all duration-500;
+  @apply hover:text-secondary hover:scale-125 transition-all duration-500;
 }
 
 .toolTip {
@@ -71,7 +71,7 @@ input::-webkit-inner-spin-button {
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #ffcc48;
+    background: #FFFF00;
     border-radius: 50px;
   }
 }
@@ -79,4 +79,8 @@ input::-webkit-inner-spin-button {
 
 .grid-cols-ese {
   grid-template-columns: repeat(auto-fill, 350px);
+}
+
+.xef:hover h1{
+  display: none;
 }

@@ -3,6 +3,9 @@ import Link from "next/link";
 import React, { useState } from "react";
 import Title from "../../components/ui/Title";
 import { GiShoppingCart } from "react-icons/gi"
+import { GiDirectionSigns } from "react-icons/gi"
+import { addProduct } from "../../redux/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 const Index = () => {
     const itemsExtra = [
@@ -11,11 +14,25 @@ const Index = () => {
         { id: 3, name: "Extra 3", price: 3 },
     ];
 
+    const foodItems = [
+        {
+            id: 1,
+            name: "Pizzas",
+            price: 10,
+            desc: "Let s leave the 2 paragraph long Lorem Ipsum example created as an example here.Maybe you can solve other mysteries behind it. :)",
+            extraOptions: [{ id: 1, name: "Extra1", price: 1 }]
+        }
+    ]
+
     const [prices, setPrices] = useState([10, 20, 30]);
     const [price, setPrice] = useState(prices[0]);
     const [size, setSize] = useState(0);
     const [extraItems, setExtraItems] = useState(itemsExtra);
     const [extras, setExtras] = useState([]);
+
+    const dispatch = useDispatch()
+
+    const cart = useSelector((state) => state.cart)
 
     const handleSize = (sizeIndex) => {
         const difference = prices[sizeIndex] - prices[size];
@@ -39,8 +56,12 @@ const Index = () => {
         }
     };
 
+    const handleClick = () => {
+        dispatch(addProduct({ ...foodItems[0], extras, price, quantity: 1 }))
+    }
+
     return (
-        <div className="flex h-screen items-center  flex-wrap px-2 sm:px-0 mb-40 md:mb-0">
+        <div className="flex h-screen items-center  flex-wrap px-2 sm:px-0 mb-40 md:mb-0 relative">
             <div className="relative md:flex-1 w-[60%] sm:h-[60%] h-[40%] mx-auto">
                 <Image
                     priority
@@ -111,14 +132,17 @@ const Index = () => {
                         </label>
                     ))}
                 </div>
-                <div className="w-full flex justify-center md:justify-start mt-10 items-center">
+                <div className="w-full flex justify-center md:justify-start mt-10 items-center" onClick={handleClick}>
                     <button className="btn-primary flex gap-x-2"> <span>Add to Cart</span>
                         <GiShoppingCart size={25} /> </button>
                 </div>
-                <div>
-                    <Link href={"/menu"}> Menü sayfasına geri git </Link>
-                </div>
             </div>
+            <Link href={"/menu"}>
+                <div className="cursor-pointer absolute md:bottom-24 -bottom-[156px] right-7 pb-3 flex items-center gap-x-2 border-b-2 border-secondary">
+                    <GiDirectionSigns size={50} className="text-primary" />
+                    <span>Menü sayfasına geri git</span>
+                </div>
+            </Link>
         </div>
     );
 };

@@ -30,9 +30,11 @@ const MenuItem = () => {
                         </p>
                         <div className="flex justify-between items-center mt-4">
                             <span>$20</span>
-                            <button className="btn-primary !w-10 !h-10 !rounded-full !p-0 grid place-content-center">
+                            <Link href={"/cart"}>
+                                <button className="btn-primary !w-10 !h-10 !rounded-full !p-0 grid place-content-center">
                                 <FaShoppingCart className=" hover:scale-125" size={20} />
                             </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
