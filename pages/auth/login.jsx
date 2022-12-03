@@ -4,9 +4,12 @@ import Input from "../../components/form/Input"
 import { useFormik } from "formik"
 import { loginSchema } from '../../schema/login'
 import Link from 'next/link'
+import { useSession, signIn } from "next-auth/react"
 
 const Login = () => {
 
+    const { data: session } = useSession()
+    console.log(session)
     const onSubmit = async (values, actions) => {
         await new Promise((resolve) => setTimeout(resolve, 1100));
         actions.resetForm();
@@ -49,13 +52,15 @@ const Login = () => {
                 <Title className="text-center mb-6">LOGIN</Title>
                 <div className='flex flex-col gap-y-4 w-full'>
                     {inputs.map((input) => (
-                        <Input key={input.id} {...input} onChange={handleChange} onBlur={handleBlur}
+                        <Input key={input.id} {...input} onChange={handleChange} onBlur={handleBlur} 
                         />
                     ))}
                 </div>
                 <div className='flex flex-col w-full gap-y-2 mt-6'>
-                    <button className='btn-primary'><i className='fa fa-sign-in mr-3'></i> LOGIN</button>
-                    <button className='btn-github'> <i className='fa fa-github mr-3'></i> GITHUB</button>
+                    <button type='submit' className='btn-primary'><i className='fa fa-sign-in mr-3'></i> LOGIN</button>
+                    <button type="button" className='btn-github'
+                        onClick={() => signIn("github")}
+                    > <i className='fa fa-github mr-3' ></i> GITHUB</button>
                     <Link href="/auth/register">
                         <span className='text-sm text-gray-500 underline cursor-pointer'>Do you no have a account ?</span>
                     </Link>
