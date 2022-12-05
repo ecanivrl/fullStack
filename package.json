@@ -11,6 +11,8 @@
   "dependencies": {
     "@next-auth/mongodb-adapter": "^1.1.1",
     "@reduxjs/toolkit": "^1.9.1",
+    "axios": "^1.2.0",
+    "bcryptjs": "^2.4.3",
     "formik": "^2.2.9",
     "mongodb": "^4.12.1",
     "mongoose": "^6.7.5",

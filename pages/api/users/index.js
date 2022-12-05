@@ -13,6 +13,7 @@ const handler = async (req, res) => {
             console.log(err)
         }
     }
+
     if (method === "POST") {
         try {
             const newUser = await User.create(req.body)
@@ -21,7 +22,7 @@ const handler = async (req, res) => {
             console.log(err)
         }
     }
-
 }
+
 
 export default handler

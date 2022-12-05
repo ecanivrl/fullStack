@@ -10,7 +10,6 @@ const Password = () => {
     const onSubmit = async (values, actions) => {
         await new Promise((resolve) => setTimeout(resolve, 1100));
         actions.resetForm();
-        console.log("values", values);
     };
 
     const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
