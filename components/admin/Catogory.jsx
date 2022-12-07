@@ -15,12 +15,12 @@ const Catogory = () => {
             <div>
                 <div className='flex gap-4 flex-1 items-center'>
                     <Input placeholder="Add a new category..." onChange={(e) => setInputText(e.target.value)} value={inputText} />
-                    <buton className="btn-primary max-w-[115px] min-w-[115px] flex items-center justify-center" onClick={() => {
+                    <button className="btn-primary max-w-[115px] min-w-[115px] flex items-center justify-center" onClick={() => {
                         setCategories([...categories, inputText])
                         setInputText("")
                     }}>Add
                         <IoIosAdd className='w-10 h-10' />
-                    </buton>
+                    </button>
                 </div>
                 {categories.length > 0 ? (
                     <div className='mt-10  max-h-[29vh] overflow-y-auto'>
