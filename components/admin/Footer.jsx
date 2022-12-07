@@ -7,8 +7,6 @@ import { footerSchema } from '../../schema/footer';
 
 const Footer = () => {
 
-    const router = useRouter()
-
     const [linkAddress, setLinkAddress] = useState("");
     const [iconName, setIconName] = useState("");
     const [icons, setIcons] = useState([
@@ -16,10 +14,8 @@ const Footer = () => {
         "fa fa-twitter",
         "fa fa-instagram",
     ]);
-
-
     const onSubmit = async (values, actions) => {
-        await new Promise((resolve) => setTimeout(resolve, 1100));
+        await new Promise((resolve) => setTimeout(resolve, 4000));
         actions.resetForm();
     };
 
@@ -41,7 +37,7 @@ const Footer = () => {
             id: 1,
             name: "location",
             type: "text",
-            placeholder: "Your location",
+            placeholder: "Your Location",
             value: values.location,
             errorMessage: errors.location,
             touched: touched.location,
@@ -49,7 +45,7 @@ const Footer = () => {
         {
             id: 2,
             name: "email",
-            type: "email",
+            type: "text",
             placeholder: "Your Email",
             value: values.email,
             errorMessage: errors.email,
@@ -86,7 +82,7 @@ const Footer = () => {
             id: 6,
             name: "time",
             type: "text",
-            placeholder: "Your time",
+            placeholder: "Update Time",
             value: values.time,
             errorMessage: errors.time,
             touched: touched.time,
@@ -100,7 +96,11 @@ const Footer = () => {
             <Title className="text-center -mt-2 mx-auto">Account Settings</Title>
             <div className="grid lg:grid-cols-2 grid-cols-1 gap-4 mt-4">
                 {inputs.map((input) => (
-                    <Input key={input.id} {...input} onBlur={handleBlur} onChange={handleChange}
+                    <Input
+                        key={input.id}
+                        {...input}
+                        onBlur={handleBlur}
+                        onChange={handleChange}
                     />
                 ))}
             </div>

@@ -60,7 +60,7 @@ const Header = () => {
                         </span>
                     </Link>
                     <Link href="/cart">
-                        <span className="relative">  <GiShoppingCart size={25} className={`lix hover:translate-x-2 duration-1000 transition-all
+                        <span className="relative">  <GiShoppingCart size={25} className={`lix hover:translate-x-2.5 cursor-pointer
                          ${router.asPath === "/cart" ? "text-secondary" : ""}`} />
                             {cart.products.length > 0 ? (
                                 <span className="w-4 h-4 text-xs grid place-content-center rounded-full
@@ -73,11 +73,11 @@ const Header = () => {
                     </Link>
                     <button onClick={() => setIsSearchModal(true)}>
                         {" "}
-                        <ImSearch className="lix" />{" "}
+                        <ImSearch className="lix" />
                     </button>
                     <a href="#" className="md:inline-block hidden">
                         {" "}
-                        <button className="btn-primary">Order Online</button>{" "}
+                        <button className="btn-primary">Order Online</button>
                     </a>
                     <button
                         onClick={() => setIsMenuModal(true)}
