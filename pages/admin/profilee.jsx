@@ -8,11 +8,30 @@ import { SiReacttable } from "react-icons/si"
 import Order from "../../components/admin/Order";
 import Catogory from "../../components/admin/Catogory";
 import Footer from "../../components/admin/Footer";
+import axios from "axios";
+import { useRouter } from "next/router"
+import { toast } from "react-toastify";
 
 // Admin Profile
 
 const Profilee = () => {
     const [tabs, setTabs] = useState(0);
+
+    const { push } = useRouter()
+
+    const closeAdminAccount = async () => {
+        try {
+            if (confirm("Are you sure you want to close your Admin Account ?")) {
+                const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/admin`)
+                if (res.status === 200) {
+                    push("/admin")
+                    toast.success("Closed Admin Account")
+                }
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
 
     return (
         <div className="flex justify-center items-center mb-20 md:mb-0 mt-10">
@@ -75,7 +94,7 @@ const Profilee = () => {
                             <button className="ml-1">Footer</button>
                         </li>
                         <li
-                            onClick={() => setTabs(4)}
+                            onClick={() => closeAdminAccount()}
                             className={`border border-secondary gap- w-full p-3 cursor-pointer
                          transition-all duration-500 ease-in ${tabs === 4 && "bg-secondary text-white"
                                 }`}
@@ -94,5 +113,20 @@ const Profilee = () => {
 
     );
 };
+
+export const getServerSideProps = (ctx) => {
+    const myCookie = ctx.req?.cookies || "";
+    if (myCookie.token !== process.env.ADMIN_TOKEN) {
+        return {
+            redirect: {
+                destination: "/admin",
+                permanent: false
+            }
+        }
+    }
+    return {
+        props: {}
+    }
+}
 
 export default Profilee;
