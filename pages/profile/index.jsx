@@ -4,11 +4,29 @@ import { MdElectricBike } from "react-icons/md";
 import Account from "../../components/profile/Account"
 import Order from "../../components/profile/Order";
 import Password from "../../components/profile/Password";
-
+import { signOut, getSession } from "next-auth/react"
+import { useRouter } from "next/router"
+import { toast } from "react-toastify";
 
 const Profile = () => {
-    const [tabs, setTabs] = useState(0);
 
+
+    const [tabs, setTabs] = useState(0);
+    const { push } = useRouter()
+
+    const handleSıgnOut = () => {
+        if (confirm("Are sure you want to sign out")) {
+            signOut({ redirect: false })
+            try {
+                toast.success("Exited Account")
+            } catch (err) {
+                console.log(err)
+            }
+            setTimeout(() => (
+                push("/auth/login")
+            ), 2000)
+        }
+    }
     return (
         <div className={`${tabs === 2 ? "" : ""}`}>
             <div className="flex px-10 min-h-[calc(100vh_-_233px)] flex-col md:flex-row py-20">
@@ -56,10 +74,10 @@ const Profile = () => {
                             <button className="ml-1">Orders</button>
                         </li>
                         <li
-                            onClick={() => setTabs(3)}
-                            className={`border border-secondary gap- w-full p-3 cursor-pointer
-                         transition-all duration-500 ease-in ${tabs === 3 && "bg-secondary text-white"
-                                }`}
+                            onClick={() => handleSıgnOut()}
+                            className="border border-secondary gap- w-full p-3 cursor-pointer
+                         transition-all duration-500 ease-in  hover:bg-secondary/30"
+
                         >
                             <i className="fa fa-sign-in"></i>
                             <button className="ml-1">Exit</button>
@@ -73,5 +91,22 @@ const Profile = () => {
         </div>
     );
 };
+
+export async function getServerSideProps({ req }) {
+    const session = await getSession({ req })
+
+    if (!session) {
+        return {
+            redirect: {
+                destination: "/auth/login",
+                permanent: false
+            }
+        }
+    }
+
+    return {
+        props: {}
+    }
+}
 
 export default Profile;

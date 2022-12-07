@@ -1,23 +1,38 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Title from '../../components/ui/Title'
 import Input from "../../components/form/Input"
 import { useFormik } from "formik"
 import { loginSchema } from '../../schema/login'
 import Link from 'next/link'
-import { useSession, signIn } from "next-auth/react"
+import { signIn, getSession } from "next-auth/react"
+import { useRouter } from 'next/router'
+import { toast } from 'react-toastify'
 
 const Login = () => {
 
-    const { data: session } = useSession()
+    const { push } = useRouter()
 
     const onSubmit = async (values, actions) => {
         const { email, password } = values
         let options = { redirect: false, email, password }
-        const res = await signIn("credentials", options)
-        // await new Promise((resolve) => setTimeout(resolve, 1100));
-        // actions.resetForm();
+        try {
+            const res = await signIn("credentials", options)
+            actions.resetForm();
+            if (res.status === 200) {
+                toast.success("Login Success")
+                setTimeout(() => (
+                    push("/profile")
+                ), 1500)
+            } else {
+                toast.error("Email or password is Wrong!")
+            }
+        } catch (err) {
+            console.log(err)
+        }
     };
-    console.log(session)
+
+
+
     const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
         useFormik({
             initialValues: {
@@ -73,5 +88,23 @@ const Login = () => {
         </div>
     )
 }
+
+export async function getServerSideProps({ req }) {
+    const session = await getSession({ req })
+
+    if (session) {
+        return {
+            redirect: {
+                destination: "/profile",
+                permanent: false
+            }
+        }
+    }
+
+    return {
+        props: {}
+    }
+}
+
 
 export default Login

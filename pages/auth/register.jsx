@@ -6,8 +6,12 @@ import { registerSchema } from '../../schema/register'
 import Link from 'next/link'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { useRouter } from 'next/router'
+
 
 const Register = () => {
+
+    const { push } = useRouter()
 
     const onSubmit = async (values, actions) => {
         await new Promise((resolve) => setTimeout(resolve, 1100));
@@ -18,6 +22,9 @@ const Register = () => {
             );
             if (res.status === 200) {
                 toast.success("Kayıt başarılı..:)")
+                setTimeout(() => (
+                    push("/auth/login")
+                ), 2000)
             } 
         } catch (err) {
             toast.error(err.response.data.message)
