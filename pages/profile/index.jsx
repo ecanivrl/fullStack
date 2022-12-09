@@ -9,22 +9,14 @@ import { useRouter } from "next/router"
 import { toast } from "react-toastify";
 
 const Profile = ({ session }) => {
-
-
     const [tabs, setTabs] = useState(0);
     const { push } = useRouter()
 
     const handleSıgnOut = () => {
         if (confirm("Are sure you want to sign out")) {
             signOut({ redirect: false })
-            // try {
-            //     toast.success("Exited Account")
-            // } catch (err) {
-            //     console.log(err)
-            // }
             push("/auth/login")
-            // setTimeout(() => (
-            // ), 2000)
+
         }
     }
 
@@ -32,7 +24,7 @@ const Profile = ({ session }) => {
         if (!session) {
             push("auth/login")
         }
-    }, [session, push])
+    }, [session])
 
 
     return (

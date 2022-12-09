@@ -21,20 +21,7 @@ const Login = () => {
         } catch (err) {
             console.log(err)
         }
-        // try {
-        //     const res = await signIn("credentials", options)
-        //     actions.resetForm();
-        //     if (res.status === 200) {
-        //         toast.success("Login Success")
-        //         setTimeout(() => (
-        //             push("/profile")
-        //         ), 1500)
-        //     } else {
-        //         toast.error("Email or password is Wrong!")
-        //     }
-        // } catch (err) {
-        //     console.log(err)
-        // }
+
     };
 
     const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
