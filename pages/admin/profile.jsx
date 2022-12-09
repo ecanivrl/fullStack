@@ -14,7 +14,7 @@ import { toast } from "react-toastify";
 
 // Admin Profile
 
-const Profilee = () => {
+const Profile = () => {
     const [tabs, setTabs] = useState(0);
 
     const { push } = useRouter()
@@ -24,7 +24,9 @@ const Profilee = () => {
             if (confirm("Are you sure you want to close your Admin Account ?")) {
                 const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/admin`)
                 if (res.status === 200) {
-                    push("/admin")
+                    setTimeout(() => {
+                        push("/admin")
+                    }, 1500);
                     toast.success("Closed Admin Account")
                 }
             }
@@ -129,4 +131,4 @@ export const getServerSideProps = (ctx) => {
     }
 }
 
-export default Profilee;
+export default Profile;

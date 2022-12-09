@@ -7,7 +7,7 @@ const handler = async (req, res) => {
     const body = req.body;
     const user = await User.findOne({ email: body.email });
     if (user) {
-        res.status(400).json({ message: "please enter different email" });
+        res.status(400).json({ message: "User Alraedy Exist" });
         return;
     }
 

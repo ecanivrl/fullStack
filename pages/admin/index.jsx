@@ -16,10 +16,11 @@ const Login = () => {
         try {
             const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/admin`, values)
             if (res.status === 200) {
-                console.log(res.data)
                 actions.resetForm()
                 toast.success("Admin Login Success")
-                push("admin/profilee")
+                setTimeout(() =>
+                    push("admin/profile")
+                    , 1500)
             }
         } catch (err) {
             console.log(err)
@@ -95,7 +96,7 @@ export const getServerSideProps = (ctx) => {
     if (myCookie.token === process.env.ADMIN_TOKEN) {
         return {
             redirect: {
-                destination: "admin/profilee",
+                destination: "admin/profile",
                 permanent: false
             }
         }

@@ -21,10 +21,10 @@ const Register = () => {
                 values
             );
             if (res.status === 200) {
-                toast.success("Kayıt başarılı..:)")
                 setTimeout(() => (
                     push("/auth/login")
                 ), 2000)
+                toast.success("User Created Succesfully")
             } 
         } catch (err) {
             toast.error(err.response.data.message)
