@@ -10,11 +10,9 @@ import { useRouter } from 'next/router'
 
 
 const Register = () => {
-
     const { push } = useRouter()
-
     const onSubmit = async (values, actions) => {
-        await new Promise((resolve) => setTimeout(resolve, 1100));
+        // await new Promise((resolve) => setTimeout(resolve, 1100));
         try {
             const res = await axios.post(
                 `${process.env.NEXT_PUBLIC_API_URL}/users/register`,

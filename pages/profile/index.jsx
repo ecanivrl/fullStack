@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MdElectricBike } from "react-icons/md";
 import Account from "../../components/profile/Account"
 import Order from "../../components/profile/Order";
@@ -8,7 +8,7 @@ import { signOut, getSession } from "next-auth/react"
 import { useRouter } from "next/router"
 import { toast } from "react-toastify";
 
-const Profile = () => {
+const Profile = ({ session }) => {
 
 
     const [tabs, setTabs] = useState(0);
@@ -17,16 +17,24 @@ const Profile = () => {
     const handleSıgnOut = () => {
         if (confirm("Are sure you want to sign out")) {
             signOut({ redirect: false })
-            try {
-                toast.success("Exited Account")
-            } catch (err) {
-                console.log(err)
-            }
-            setTimeout(() => (
-                push("/auth/login")
-            ), 2000)
+            // try {
+            //     toast.success("Exited Account")
+            // } catch (err) {
+            //     console.log(err)
+            // }
+            push("/auth/login")
+            // setTimeout(() => (
+            // ), 2000)
         }
     }
+
+    useEffect(() => {
+        if (!session) {
+            push("auth/login")
+        }
+    }, [session, push])
+
+
     return (
         <div className={`${tabs === 2 ? "" : ""}`}>
             <div className="flex px-10 min-h-[calc(100vh_-_233px)] flex-col md:flex-row py-20">
@@ -105,7 +113,9 @@ export async function getServerSideProps({ req }) {
     }
 
     return {
-        props: {}
+        props: {
+            session
+        }
     }
 }
 
