@@ -15,7 +15,7 @@ const Login = () => {
         try {
             const res = await signIn("credentials", options)
             actions.resetForm()
-            push("/profile")
+            push("/profile/63906b9381e0b7d2f38b48a9")
         } catch (err) {
             console.log(err)
         }
@@ -83,7 +83,7 @@ export async function getServerSideProps({ req }) {
     if (session) {
         return {
             redirect: {
-                destination: "/profile",
+                destination: "/profile/63906b9381e0b7d2f38b48a9",
                 permanent: false
             }
         }
