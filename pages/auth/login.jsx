@@ -1,12 +1,10 @@
-import React from 'react'
 import Title from '../../components/ui/Title'
 import Input from "../../components/form/Input"
 import { useFormik } from "formik"
 import { loginSchema } from '../../schema/login'
 import Link from 'next/link'
-import { signIn, getSession } from "next-auth/react"
+import { signIn, getSession } from "next-auth/react";
 import { useRouter } from "next/router";
-import { toast } from 'react-toastify'
 
 const Login = () => {
     const { push } = useRouter();
@@ -15,13 +13,12 @@ const Login = () => {
         const { email, password } = values;
         let options = { redirect: false, email, password };
         try {
-            const res = await signIn("credentials", options);
-            actions.resetForm();
+            const res = await signIn("credentials", options)
+            actions.resetForm()
             push("/profile")
         } catch (err) {
             console.log(err)
         }
-
     };
 
     const { values, errors, touched, handleSubmit, handleChange, handleBlur } =

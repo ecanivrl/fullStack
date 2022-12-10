@@ -17,23 +17,21 @@ import { toast } from "react-toastify";
 const Profile = () => {
     const [tabs, setTabs] = useState(0);
 
-    const { push } = useRouter()
+    const { push } = useRouter();
 
     const closeAdminAccount = async () => {
         try {
-            if (confirm("Are you sure you want to close your Admin Account ?")) {
-                const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/admin`)
+            if (confirm("Are you sure you want to close your Admin Account?")) {
+                const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/admin`);
                 if (res.status === 200) {
-                    setTimeout(() => {
-                        push("/admin")
-                    }, 1500);
-                    toast.success("Closed Admin Account")
+                    push("/admin");
+                    toast.success("Admin Account Closed!");
                 }
             }
         } catch (err) {
-            console.log(err)
+            console.log(err);
         }
-    }
+    };
 
     return (
         <div className="flex justify-center items-center mb-20 md:mb-0 mt-10">
@@ -96,7 +94,7 @@ const Profile = () => {
                             <button className="ml-1">Footer</button>
                         </li>
                         <li
-                            onClick={() => closeAdminAccount()}
+                            onClick={closeAdminAccount}
                             className={`border border-secondary gap- w-full p-3 cursor-pointer
                          transition-all duration-500 ease-in ${tabs === 4 && "bg-secondary text-white"
                                 }`}
@@ -122,13 +120,14 @@ export const getServerSideProps = (ctx) => {
         return {
             redirect: {
                 destination: "/admin",
-                permanent: false
-            }
-        }
+                permanent: false,
+            },
+        };
     }
+
     return {
-        props: {}
-    }
-}
+        props: {},
+    };
+};
 
 export default Profile;

@@ -14,17 +14,20 @@ const Login = () => {
 
     const onSubmit = async (values, actions) => {
         try {
-            const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/admin`, values)
+            const res = await axios.post(
+                `${process.env.NEXT_PUBLIC_API_URL}/admin`,
+                values
+            );   
             if (res.status === 200) {
-                actions.resetForm()
-                toast.success("Admin Login Success")
-                setTimeout(() =>
-                    push("admin/profile")
-                    , 1500)
+                console.log(res.data);
+                actions.resetForm();
+                toast.success("Admin Login Success!");
+                push("/admin/profile");
             }
         } catch (err) {
             console.log(err)
         }
+        actions.resetForm()
     };
 
     const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
@@ -96,14 +99,15 @@ export const getServerSideProps = (ctx) => {
     if (myCookie.token === process.env.ADMIN_TOKEN) {
         return {
             redirect: {
-                destination: "admin/profile",
-                permanent: false
-            }
-        }
+                destination: "/admin/profile",
+                permanent: false,
+            },
+        };
     }
+
     return {
-        props: {}
-    }
-}
+        props: {},
+    };
+};
 
 export default Login;

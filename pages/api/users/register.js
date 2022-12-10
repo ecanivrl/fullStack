@@ -7,9 +7,9 @@ const handler = async (req, res) => {
     const body = req.body;
     const user = await User.findOne({ email: body.email });
     if (user) {
-        res.status(400).json({ message: "User Alraedy Exist" });
-        return;
-    }
+      res.status(400).json({ message: "User already exists" });
+      return;
+  }
 
     try {
         const newUser = await new User(body);

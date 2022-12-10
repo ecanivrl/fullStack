@@ -5,30 +5,26 @@ import { useFormik } from "formik"
 import { registerSchema } from '../../schema/register'
 import Link from 'next/link'
 import axios from 'axios'
-import { toast } from 'react-toastify'
+import { toast } from "react-toastify";
 import { useRouter } from 'next/router'
-
 
 const Register = () => {
     const { push } = useRouter()
     const onSubmit = async (values, actions) => {
-        // await new Promise((resolve) => setTimeout(resolve, 1100));
         try {
             const res = await axios.post(
                 `${process.env.NEXT_PUBLIC_API_URL}/users/register`,
                 values
             );
             if (res.status === 200) {
-                setTimeout(() => (
-                    push("/auth/login")
-                ), 2000)
-                toast.success("User Created Succesfully")
+                toast.success("User Created Successfully")
+                push("/auth/login");
             } 
         } catch (err) {
             toast.error(err.response.data.message)
-            console.log(err)
+            console.log(err);
         }
-        actions.resetForm();
+        actions.resetForm()
     };
 
     const { values, errors, touched, handleSubmit, handleChange, handleBlur } =

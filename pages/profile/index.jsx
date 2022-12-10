@@ -4,7 +4,7 @@ import { MdElectricBike } from "react-icons/md";
 import Account from "../../components/profile/Account"
 import Order from "../../components/profile/Order";
 import Password from "../../components/profile/Password";
-import { signOut, getSession } from "next-auth/react"
+import { signOut, getSession, useSession } from "next-auth/react"
 import { useRouter } from "next/router"
 import { toast } from "react-toastify";
 
@@ -13,19 +13,17 @@ const Profile = ({ session }) => {
     const { push } = useRouter()
 
     const handleSıgnOut = () => {
-        if (confirm("Are sure you want to sign out")) {
-            signOut({ redirect: false })
-            push("/auth/login")
-
+        if (confirm("Are you sure you want to sign out?")) {
+            signOut({ redirect: false });
+            push("/auth/login");
         }
     }
 
-    useEffect(() => {
-        if (!session) {
-            push("auth/login")
-        }
-    }, [session])
-
+    // useEffect(() => {
+    //     if (!session) {
+    //         push("/auth/login");
+    //     }
+    // }, [session, push]);
 
     return (
         <div className={`${tabs === 2 ? "" : ""}`}>
@@ -74,7 +72,7 @@ const Profile = ({ session }) => {
                             <button className="ml-1">Orders</button>
                         </li>
                         <li
-                            onClick={() => handleSıgnOut()}
+                            onClick={handleSıgnOut}
                             className="border border-secondary gap- w-full p-3 cursor-pointer
                          transition-all duration-500 ease-in  hover:bg-secondary/30"
 
@@ -93,22 +91,22 @@ const Profile = ({ session }) => {
 };
 
 export async function getServerSideProps({ req }) {
-    const session = await getSession({ req })
+    const session = await getSession({ req });
 
     if (!session) {
         return {
             redirect: {
                 destination: "/auth/login",
-                permanent: false
-            }
-        }
+                permanent: false,
+            },
+        };
     }
 
     return {
         props: {
-            session
-        }
-    }
+            session,
+        },
+    };
 }
 
 export default Profile;
