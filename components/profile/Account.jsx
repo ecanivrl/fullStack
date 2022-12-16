@@ -3,25 +3,29 @@ import Input from '../form/Input'
 import Title from '../ui/Title'
 import { useFormik } from "formik";
 import { profileSchema } from "../../schema/profile";
-import { useRouter } from 'next/router';
+import axios from 'axios';
 
-const Account = () => {
-    const router = useRouter()
+const Account = ({ user }) => {
 
     const onSubmit = async (values, actions) => {
-        await new Promise((resolve) => setTimeout(resolve, 1100));
+        try {
+            const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/${user._id}`, values)
+        } catch (err) {
+            console.log(err)
+        }
         actions.resetForm();
     };
 
     const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
         useFormik({
+            enableReinitialize: true,
             initialValues: {
-                fullName: "",
-                phoneNumber: "",
-                email: "",
-                address: "",
-                job: "",
-                bio: "",
+                fullName: user?.fullName,
+                phoneNumber: user?.phoneNumber,
+                email: user?.email,
+                address: user?.address,
+                job: user?.job,
+                bio: user?.bio,
             },
             onSubmit,
             validationSchema: profileSchema,

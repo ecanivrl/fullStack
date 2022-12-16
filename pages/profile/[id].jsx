@@ -4,12 +4,13 @@ import { MdElectricBike } from "react-icons/md";
 import Account from "../../components/profile/Account"
 import Order from "../../components/profile/Order";
 import Password from "../../components/profile/Password";
-import { signOut, getSession, useSession } from "next-auth/react"
+import { signOut, useSession } from "next-auth/react"
 import { useRouter } from "next/router"
 import { toast } from "react-toastify";
 import axios from "axios";
 
-const Profile = ({ session }) => {
+const Profile = ({ user }) => {
+    const { data: session } = useSession()
     const [tabs, setTabs] = useState(0);
     const { push } = useRouter()
 
@@ -20,11 +21,11 @@ const Profile = ({ session }) => {
         }
     }
 
-    // useEffect(() => {
-    //     if (!session) {
-    //         push("/auth/login");
-    //     }
-    // }, [session, push]);
+    useEffect(() => {
+        if (!session) {
+            push("/auth/login");
+        }
+    }, [session, push]);
 
     return (
         <div className={`${tabs === 2 ? "" : ""}`}>
@@ -39,7 +40,7 @@ const Profile = ({ session }) => {
                             height={100}
                             className="rounded-full"
                         />
-                        <b className="text-2xl mt-1">Thiago</b>
+                        <b className="text-2xl mt-1">{user.fullName}</b>
                     </div>
                     <ul className="text-center">
                         <li
@@ -92,16 +93,7 @@ const Profile = ({ session }) => {
 };
 
 export async function getServerSideProps({ req, params }) {
-    const session = await getSession({ req });
 
-    if (!session) {
-        return {
-            redirect: {
-                destination: "/auth/login",
-                permanent: false,
-            },
-        };
-    }
 
     const user = await axios.get(
         `${process.env.NEXT_PUBLIC_API_URL}/users/${params.id}`
@@ -109,7 +101,7 @@ export async function getServerSideProps({ req, params }) {
 
     return {
         props: {
-            session,
+            user: user ? user.data : null,
         },
     };
 }
