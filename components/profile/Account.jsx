@@ -1,20 +1,32 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Input from '../form/Input'
 import Title from '../ui/Title'
 import { useFormik } from "formik";
 import { profileSchema } from "../../schema/profile";
 import axios from 'axios';
+import { toast } from "react-toastify";
+import { useRouter } from "next/router";
+
 
 const Account = ({ user }) => {
+    const { push } = useRouter()
 
     const onSubmit = async (values, actions) => {
         try {
             const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/${user._id}`, values)
+            toast.success("Hesap Bilgileri güncelleniyor")
+            const refresh = setTimeout(ref, 1000)
+            function ref(
+            ) {
+                window.location.reload()
+            }
         } catch (err) {
             console.log(err)
         }
         actions.resetForm();
     };
+
+
 
     const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
         useFormik({
@@ -86,6 +98,7 @@ const Account = ({ user }) => {
             touched: touched.bio,
         },
     ];
+
 
     return (
         <form

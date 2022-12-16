@@ -7,8 +7,9 @@ import { signIn, getSession, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { toast } from 'react-toastify'
 
-const Login = () => {
+const Login = ({ user }) => {
     const { data: session } = useSession()
     const { push } = useRouter();
     const [currentUser, setCurrentUser] = useState()
@@ -31,13 +32,21 @@ const Login = () => {
                 setCurrentUser(
                     res.data?.find((user) => user.email === session?.user?.email)
                 );
+                setTimeout(() => {
                 push("/profile/" + currentUser?._id);
+                }, 1500)
             } catch (err) {
-                console.log(err);
+                console.log(err); si
             }
         };
         getUser();
     }, [session, push, currentUser]);
+
+    useEffect(() => {
+        if (session) {
+            toast.success("Giriş yapılıyor")
+        }
+    }, [session])
 
     const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
         useFormik({
@@ -96,6 +105,7 @@ const Login = () => {
 }
 
 export async function getServerSideProps({ req }) {
+
     const session = await getSession({ req })
 
     const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`);
@@ -106,11 +116,14 @@ export async function getServerSideProps({ req }) {
                 destination: "/profile/" + user._id,
                 permanent: false
             }
+
         }
     }
 
     return {
-        props: {}
+        props: {
+            user: user ? user : null
+        }
     }
 }
 

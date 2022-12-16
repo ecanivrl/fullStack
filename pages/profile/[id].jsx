@@ -17,30 +17,34 @@ const Profile = ({ user }) => {
     const handleSıgnOut = () => {
         if (confirm("Are you sure you want to sign out?")) {
             signOut({ redirect: false });
-            push("/auth/login");
+            toast.success("çıkş yapılıyor")
+
+
         }
     }
 
     useEffect(() => {
         if (!session) {
+            setTimeout(() => {
             push("/auth/login");
+            }, 2000)
         }
     }, [session, push]);
 
     return (
-        <div className={`${tabs === 2 ? "" : ""}`}>
+        <div className={`${tabs === 2 ? "" : ""} ${tabs === 0 ? "-mt-28 md:mt-0 " : ""}`}>
             <div className="flex px-10 min-h-[calc(100vh_-_233px)] flex-col md:flex-row py-20">
                 <div className={"md:w-80 w-full flex-shrink-0  mx-auto"}>
                     <div className="relative flex flex-col items-center px-10 py-5 border border-secondary
                  border-b-0 lg:h-auto mt-[105px] lg:mt-0 h-[213px] ">
                         <Image
-                            src="/images/cat.jpg"
+                            src={user.image ? user.image : "/images/client2.jpg"}
                             alt="cat"
                             width={100}
                             height={100}
                             className="rounded-full"
                         />
-                        <b className="text-2xl mt-1">{user.fullName}</b>
+                        <b className="text-2xl mt-1">{user?.fullName}</b>
                     </div>
                     <ul className="text-center">
                         <li
@@ -84,8 +88,8 @@ const Profile = ({ user }) => {
                         </li>
                     </ul>
                 </div>
-                {tabs === 0 && (<Account />)}
-                {tabs === 1 && (<Password />)}
+                {tabs === 0 && (<Account user={user} />)}
+                {tabs === 1 && (<Password user={user} />)}
                 {tabs === 2 && (<Order />)}
             </div>
         </div>
@@ -93,7 +97,6 @@ const Profile = ({ user }) => {
 };
 
 export async function getServerSideProps({ req, params }) {
-
 
     const user = await axios.get(
         `${process.env.NEXT_PUBLIC_API_URL}/users/${params.id}`

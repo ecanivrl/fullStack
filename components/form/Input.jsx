@@ -1,6 +1,9 @@
 import React from "react";
+import { useRouter } from "next/router";
+
 
 const Input = (props) => {
+    const router = useRouter()
     const {
         type,
         placeholder,

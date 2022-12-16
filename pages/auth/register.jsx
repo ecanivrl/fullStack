@@ -16,9 +16,11 @@ const Register = () => {
                 `${process.env.NEXT_PUBLIC_API_URL}/users/register`,
                 values
             );
+            toast.success("Hesap Oluşturma Başarılı")
             if (res.status === 200) {
-                toast.success("User Created Successfully")
-                push("/auth/login");
+                setTimeout(() => {
+                    push("/auth/login");
+                }, 1000)
             } 
         } catch (err) {
             toast.error(err.response.data.message)
