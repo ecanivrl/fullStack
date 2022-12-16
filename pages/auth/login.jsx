@@ -3,11 +3,15 @@ import Input from "../../components/form/Input"
 import { useFormik } from "formik"
 import { loginSchema } from '../../schema/login'
 import Link from 'next/link'
-import { signIn, getSession } from "next-auth/react";
+import { signIn, getSession, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 const Login = () => {
+    const { data: session } = useSession()
     const { push } = useRouter();
+    const [currentUser, setCurrentUser] = useState()
 
     const onSubmit = async (values, actions) => {
         const { email, password } = values;
@@ -15,11 +19,25 @@ const Login = () => {
         try {
             const res = await signIn("credentials", options)
             actions.resetForm()
-            push("/profile/63906b9381e0b7d2f38b48a9")
         } catch (err) {
             console.log(err)
         }
     };
+
+    useEffect(() => {
+        const getUser = async () => {
+            try {
+                const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`);
+                setCurrentUser(
+                    res.data?.find((user) => user.email === session?.user?.email)
+                );
+                push("/profile/" + currentUser?._id);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        getUser();
+    }, [session, push, currentUser]);
 
     const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
         useFormik({
@@ -80,10 +98,12 @@ const Login = () => {
 export async function getServerSideProps({ req }) {
     const session = await getSession({ req })
 
-    if (session) {
+    const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users`);
+    const user = res.data?.find((user) => user.email === session?.user.email);
+    if (session && user) {
         return {
             redirect: {
-                destination: "/profile/63906b9381e0b7d2f38b48a9",
+                destination: "/profile/" + user._id,
                 permanent: false
             }
         }

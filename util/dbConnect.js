@@ -85,6 +85,5 @@ async function dbConnect() {
     return cached.conn;
 }
 
-console.log("Connected to MongoDB");
 
 export default dbConnect;
