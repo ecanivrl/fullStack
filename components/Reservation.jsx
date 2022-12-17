@@ -86,7 +86,7 @@ const Reservation = (props) => {
                     className={`${input.id === 1 ? "lg:rounded-tl-[30px] rounded-none" : ""
                         }
                         ${input.id === 5
-                            ? "lg:rounded-bl-[30px] rounded-none"
+                        ? ""
                             : ""
                         }
                         ${input.type === "datetime-local" ? "h-16 pt-5" : ""} 

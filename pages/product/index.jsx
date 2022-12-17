@@ -138,9 +138,9 @@ const Index = () => {
                 </div>
             </div>
             <Link href={"/menu"}>
-                <div className="cursor-pointer absolute md:bottom-24 -bottom-[156px] right-7 pb-3 flex items-center gap-x-2 border-b-2 border-secondary">
-                    <GiDirectionSigns size={50} className="text-primary" />
-                    <span>Menü sayfasına geri git</span>
+                <div className="cursor-pointer absolute md:bottom-24 -bottom-[156px] right-7 pb-3 flex items-center gap-x-2 border-b-4 border-primary">
+                    <GiDirectionSigns size={30} className="text-primary" />
+                    <span className="text-sm text-secondary">Menü sayfasına geri git</span>
                 </div>
             </Link>
         </div>

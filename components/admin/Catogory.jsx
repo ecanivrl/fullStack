@@ -3,12 +3,16 @@ import Input from '../form/Input'
 import Title from '../ui/Title'
 import { BsTrash2 } from "react-icons/bs"
 import { IoIosAdd } from "react-icons/io"
+import { toast } from 'react-toastify'
 
 
 const Catogory = () => {
 
     const [inputText, setInputText] = useState("")
     const [categories, setCategories] = useState(["pizza"])
+
+
+
     return (
         <div className='flex-1 sm:pl-5 pl-0'>
             <Title className="text-center mt-2 mx-auto mb-2">Category</Title>

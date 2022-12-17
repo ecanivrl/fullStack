@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import Title from "./ui/Title";
 
+
 const About = () => {
     return (
         <div className="bg-primary py-14">

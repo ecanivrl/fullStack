@@ -24,8 +24,10 @@ const Profile = () => {
             if (confirm("Are you sure you want to close your Admin Account?")) {
                 const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/admin`);
                 if (res.status === 200) {
+                    toast.success("Admin Hesabından Çıkış yapılıyor!");
+                    setTimeout(() => {
                     push("/admin");
-                    toast.success("Admin Account Closed!");
+                    }, 2500)
                 }
             }
         } catch (err) {
