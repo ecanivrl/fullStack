@@ -47,6 +47,8 @@ const Catogory = () => {
                 const result = await axios.delete(
                     `${process.env.NEXT_PUBLIC_API_URL}/categories/${id}`,
                 );
+                    console.log(result)
+                 toast.success(`${result.title} silindi`)
                 setCategories(categories.filter((cat) => cat._id !== id));
             }
 
