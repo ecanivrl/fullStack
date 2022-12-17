@@ -33,10 +33,10 @@ const Login = ({ user }) => {
                     res.data?.find((user) => user.email === session?.user?.email)
                 );
                 setTimeout(() => {
-                push("/profile/" + currentUser?._id);
+                    session && push("/profile/" + currentUser?._id);
                 }, 1500)
             } catch (err) {
-                console.log(err); si
+                console.log(err); 
             }
         };
         getUser();

@@ -20,8 +20,10 @@ const Login = () => {
             );   
             if (res.status === 200) {
                 actions.resetForm();
-                toast.success("Admin Login Success!");
+                toast.success("Admin Girişi Yapılıyor!");
+                setTimeout(() => {
                 push("/admin/profile");
+                }, 1500)
             }
         } catch (err) {
             console.log(err)
@@ -78,7 +80,7 @@ const Login = () => {
                     ))}
                 </div>
                 <div className="flex flex-col w-full gap-y-2 mt-6">
-                    <button className="btn-primary bg-secondary  !text-white">
+                    <button className="btn-primary bg-secondary  !text-white" type="submit">
                         <i className="fa fa-sign-in mr-3 hover:-rotate-90 text-xl"></i>{" "}
                         LOGIN
                     </button>

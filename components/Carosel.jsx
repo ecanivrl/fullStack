@@ -25,6 +25,7 @@ const Carosel = () => {
                         alt="carosel"
                         objectFit="cover"
                         layout="fill"
+                        priority
                     />
                 </div>
             </div>

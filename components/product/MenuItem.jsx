@@ -16,6 +16,7 @@ const MenuItem = () => {
                                 alt=""
                                 layout="fill"
                                 objectFit="cover"
+                                    priority
                             />
                         </div>
                         </Link>
