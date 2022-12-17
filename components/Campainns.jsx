@@ -13,6 +13,7 @@ const CampainItem = () => {
                     layout="fill"
                     objectFit="cover"
                     className="hover:scale-105 transition-all"
+                    priority
                 />
             </div>
             <div className="text-white">

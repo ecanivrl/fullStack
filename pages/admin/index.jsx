@@ -23,7 +23,7 @@ const Login = () => {
                 toast.success("Admin Girişi Yapılıyor!");
                 setTimeout(() => {
                 push("/admin/profile");
-                }, 2000)
+                }, 1500)
             }
         } catch (err) {
             console.log(err)
