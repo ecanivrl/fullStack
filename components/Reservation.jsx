@@ -95,7 +95,9 @@ const Reservation = (props) => {
             ))}
                       <button
                           type="submit"
-                          className="btn-primary flex justify-center items-center gap-x-4 w-full"
+                            className=" text-white px-[30px] py-2.5 lg:rounded-bl-3xl rounded-none bg-secondary cursor-pointer
+                           hover:text-primary transition-all hover:bg-[#FFFF00] flex justify-center
+                            items-center gap-x-4 w-full"
                       >
                           Book Now
                           <FaTabletAlt />

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
+import { GiShoppingCart } from "react-icons/gi"
 
 const MenuItem = () => {
     return (
@@ -32,8 +33,8 @@ const MenuItem = () => {
                         <div className="flex justify-between items-center mt-4">
                             <span>$20</span>
                             <Link href={"/cart"}>
-                                <button className="btn-primary !w-10 !h-10 !rounded-full !p-0 grid place-content-center">
-                                <FaShoppingCart className=" hover:scale-125" size={20} />
+                                <button className="btn-primary !bg-primary !w-10 !h-10 !rounded-full !p-0 grid place-content-center">
+                                    <GiShoppingCart className=" hover:scale-150 duration-500 hover:text-secondary" size={20} />
                             </button>
                             </Link>
                         </div>

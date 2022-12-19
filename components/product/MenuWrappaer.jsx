@@ -7,7 +7,6 @@ const MenuWrappaer = ({ categoryList }) => {
 
     const [active, setActive] = useState(0)
 
-    console.log(categoryList)
     return (
         <div className="container mx-auto mb-16">
             <div className="flex flex-col items-center  w-full">

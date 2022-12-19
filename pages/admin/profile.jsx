@@ -11,12 +11,14 @@ import Footer from "../../components/admin/Footer";
 import axios from "axios";
 import { useRouter } from "next/router"
 import { toast } from "react-toastify";
+import AddProduct from "../../components/admin/AddProduct";
+import { IoIosAdd } from "react-icons/io"
 
 // Admin Profile
 
 const Profile = () => {
     const [tabs, setTabs] = useState(0);
-
+    const [isProductModal, setIsProductModal] = useState(false)
     const { push } = useRouter();
 
     const closeAdminAccount = async () => {
@@ -27,7 +29,7 @@ const Profile = () => {
                     toast.success("Admin Hesabından Çıkış yapılıyor!");
                     setTimeout(() => {
                     push("/admin");
-                    }, 2500)
+                    }, 2000)
                 }
             }
         } catch (err) {
@@ -110,6 +112,11 @@ const Profile = () => {
                 {tabs === 0 && (<Products />)}
                 {tabs === 1 && (<Order />)}
                 {tabs === 3 && (<Footer />)}
+                {isProductModal && <AddProduct setIsProductModal={setIsProductModal} />}
+                <button className="bg-secondary rounded-xl p-1 text-white flex items-center 
+                absolute top-28 right-5 " onClick={() => setIsProductModal(true)}>Add
+                    <IoIosAdd className='w-6 h-6' />
+                </button>
             </div>
         </div>
 

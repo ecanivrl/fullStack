@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Title from "../../components/ui/Title";
 import Input from "../../components/form/Input";
 import { useFormik } from "formik";
@@ -11,7 +11,6 @@ import { toast } from "react-toastify";
 const Login = () => {
 
     const { push } = useRouter()
-
     const onSubmit = async (values, actions) => {
         try {
             const res = await axios.post(
@@ -23,7 +22,7 @@ const Login = () => {
                 toast.success("Admin Girişi Yapılıyor!");
                 setTimeout(() => {
                 push("/admin/profile");
-                }, 1500)
+                }, 1100)
             }
         } catch (err) {
             console.log(err)

@@ -45,10 +45,9 @@ const Catogory = () => {
         try {
             if (confirm("Are you sure you want to delete this category?")) {
                 const result = await axios.delete(
-                    `${process.env.NEXT_PUBLIC_API_URL}/categories/${id}`,
-                );
+                    `${process.env.NEXT_PUBLIC_API_URL}/categories/${id}`,);
                     console.log(result)
-                 toast.success(`${result.title} silindi`)
+                toast.success(`${result.data.title} silindi`)
                 setCategories(categories.filter((cat) => cat._id !== id));
             }
 
@@ -85,7 +84,7 @@ const Catogory = () => {
                         ))}
                     </div>
                 ) : (
-                    <p className='text-2xl font-dancing mt-10 text-danger text-center font-bold '>Ürün ekleyin</p>
+                        <p className='text-2xl font-dancing mt-10 text-danger text-center font-bold '>Kategori ekleyin</p>
                 )}
             </div>
         </div >

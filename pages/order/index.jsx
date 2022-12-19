@@ -27,19 +27,19 @@ const Index = () => {
                     </table>
                 </div>
                 <div className='flex justify-between w-full p-10 bg-secondary mt-6'>
-                    <div className='relative flex flex-col animate-bounce'>
+                    <div className='relative flex flex-col animate-pulse'>
                         <Image src="/images/paid.png" alt="paid" width={40} height={40} objectFit="contain" />
                         <span>PAYMENT</span>
                     </div>
-                    <div className='relative flex flex-col animate-bounce'>
+                    <div className='relative flex flex-col animate-pulse'>
                         <Image src="/images/bake.png" alt="paid" width={40} height={40} objectFit="contain" />
                         <span>PREPARİNG</span>
                     </div>
-                    <div className='relative flex flex-col animate-bounce'>
+                    <div className='relative flex flex-col animate-pulse'>
                         <Image src="/images/bike.png" alt="paid" width={40} height={40} objectFit="contain" />
                         <span>ONE THE WAY</span>
                     </div>
-                    <div className='relative flex flex-col animate-bounce'>
+                    <div className='relative flex flex-col animate-pulse'>
                         <Image src="/images/delivered.png" alt="paid" width={40} height={40} objectFit="contain" />
                         <span>DELIVERED</span>
                     </div>
