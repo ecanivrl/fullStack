@@ -67,7 +67,7 @@ const Catogory = () => {
                     </button>
                 </div>
                 {categories.length > 0 ? (
-                    <div className='mt-10  max-h-[38vh] overflow-y-auto'>
+                    <div className='mt-10  max-h-[38vh] overflow-y-auto custom-vertical-scrollbar'>
                         {categories.map((category) => (
                             <div key={category._id} className='flex items-center justify-between mt-4 px-2'>
                                 <span className='text-xl text-black
