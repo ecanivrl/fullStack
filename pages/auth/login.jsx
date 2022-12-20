@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 
 const Login = ({ user }) => {
+
     const { data: session } = useSession()
     const { push } = useRouter();
     const [currentUser, setCurrentUser] = useState()

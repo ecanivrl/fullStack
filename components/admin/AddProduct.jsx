@@ -4,14 +4,17 @@ import OutsideClickHandler from "react-outside-click-handler";
 import Title from "../ui/Title";
 import { GiCancel } from "react-icons/gi";
 import Input from "../form/Input";
+import { IoIosAdd } from "react-icons/io"
+
 
 const AddProduct = ({ setIsProductModal }) => {
     return (
-        <div className="fixed -top-1 left-0 w-screen h-screen z-50 after:content-[''] after:w-screen after:h-screen after:bg-white after:absolute after:top-0 after:left-0 after:opacity-60 grid place-content-center">
+        <div className="fixed -top-1 left-0 w-screen h-screen z-50 after:content-[''] after:w-screen after:h-screen after:bg-[#f3f3f3] after:absolute after:top-0 after:left-0 after:opacity-90 grid place-content-center">
             <OutsideClickHandler onOutsideClick={() => setIsProductModal(false)}>
+
                 <div className="w-full h-full grid place-content-center relative">
-                    <div className="relative z-50 md:w-[600px] w-[370px]  bg-red-500  max-h-[670px] border-2 px-10 py-2 rounded-3xl">
-                        <Title className="text-[40px] text-center">Add a New Product</Title>
+                    <div className="relative z-50 md:w-[600px] w-[370px] bg-white max-h-[670px] border-2 p-10 rounded-3xl">
+                        <Title className="md:text-[40px] text-[30px] text-center -mt-5">Add a New Product</Title>
 
                         <div className="flex flex-col text-sm mt-2">
                             <span className="font-semibold mb-1">Choose an image</span>
@@ -48,7 +51,8 @@ const AddProduct = ({ setIsProductModal }) => {
 
                         <div className="flex flex-col text-sm mt-4 w-full">
                             <span className="font-semibold mb-[2px]">Prices</span>
-                            <div className="flex justify-between gap-6 w-full md:flex-nowrap flex-wrap">
+                            <div className="flex justify-between gap-6 w-full md:flex-nowrap flex-wrap  h-[75px] items-center
+                            custom-vertical-scrollbar overflow-y-auto overflow-x-hidden">
                                 <Input
                                     type="number"
                                     className="!h-10"
@@ -66,7 +70,7 @@ const AddProduct = ({ setIsProductModal }) => {
                                 />
                             </div>
                         </div>
-                        <div className="flex flex-col text-sm mt-4 w-full">
+                        <div className="flex flex-col text-sm mt-2 w-full py-2">
                             <span className="font-semibold mb-[2px]">Extra</span>
                             <div className="flex  gap-6 w-full md:flex-nowrap flex-wrap">
                                 <input
@@ -74,20 +78,24 @@ const AddProduct = ({ setIsProductModal }) => {
                                     className="border-b-2 border-secondary p-1 pl-0 text-sm px-1 outline-none w-36"
                                     placeholder="item"
                                 />
+                                <div className="mt-1">
+                                    <span className="inline-block border md:ml-0 ml-16 border-orange-500 text-orange-500  p-1 rounded-xl text-xs">
+                                        ketçap
+                                    </span>
+                                </div>
                                 <input
                                     type="number"
                                     className="border-b-2 border-secondary p-1 pl-0 text-sm px-1 outline-none w-36"
                                     placeholder="price"
                                 />
-                                <button className="btn-primary ml-auto">Add</button>
+                                <button className="bg-secondary rounded-lg p-2 text-white flex items-center 
+                ml-auto" onClick={() => setIsProductModal(true)}>Add
+                                    <IoIosAdd className='w-5 h-5' />
+                                </button>
                             </div>
-                            <div className="mt-2">
-                                <span className="inline-block border border-orange-500 text-orange-500  p-1 rounded-xl text-xs">
-                                    ketçap
-                                </span>
-                            </div>
+
                         </div>
-                        <div className="flex mt-2">
+                        <div className="flex md:mt-5 mt-2">
                             <button className="w-full rounded-xl p-1.5 !bg-success ">Create</button>
                         </div>
                         <button

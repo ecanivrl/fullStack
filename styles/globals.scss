@@ -84,3 +84,19 @@ input::-webkit-inner-spin-button {
 .xef:hover h1{
   display: none;
 }
+
+.custom-vertical-scrollbar {
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #fff5da;
+    border-radius: 38px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #000;
+    border-radius: 38px;
+  }
+}

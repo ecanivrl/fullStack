@@ -1,7 +1,5 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { BsEyeSlash } from "react-icons/bs"
-import { BsEye } from "react-icons/bs"
 
 
 const Input = (props) => {
@@ -40,13 +38,7 @@ const Input = (props) => {
                   >
                       {placeholder}
                   </span>
-              )}
-                {type === "password" ? (<div className="absolute top-5 right-3 cursor-pointer">
-                    <span ><BsEyeSlash /></span>
-                    {/* <span ><BsEye /></span> */}
-
-                </div>) : ("")}
-
+                )}
                 {touched && <span className="text-xs text-danger">{errorMessage}</span>}
           </label>
       </div>
