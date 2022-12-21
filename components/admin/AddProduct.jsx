@@ -77,6 +77,9 @@ const AddProduct = ({ setIsProductModal }) => {
             if (res.status === 200) {
                 setIsProductModal(false)
                 toast.success("Ürün Oluşturuldu")
+                setTimeout(() => {
+                    window.location.reload()
+                }, 1300)
             }
 
         } catch (err) {

@@ -17,9 +17,9 @@ const Cart = () => {
         <>
             {cart.products.length > 0 ? (
                 <div className='w-full px-5 flex lg:flex-row  flex-col justify-center items-center gap-5 h-screen lg:h-[430px]'>
-                    <div className='lg:w-3/4 w-full overflow-x-auto custom-scrollbar pb-3'>
-                        <table className='w-full text-sm text-center text-gray-500  min-w-[640px] custom-scrollbar '>
-                            <thead className='text-xs text-gray-400 bg-gray-700 uppercase border-white border-b-8'>
+                    <div className='lg:w-3/4 w-full overflow-x-auto custom-vertical-scrollbar pb-3'>
+                        <table className='w-full text-sm text-center text-gray-500  min-w-[640px]  '>
+                            <thead className='text-xs text-gray-400 bg-secondary uppercase border-white border-b-8'>
                                 <tr>
                                     <th scope='col' className='py-3 px-6 hover:text-white'>PRODUCT</th>
                                     <th scope='col' className='py-3 px-6 hover:text-white'>EXSTRAS</th>
@@ -46,7 +46,7 @@ const Cart = () => {
                             </tbody>
                         </table>
                     </div>
-                    <div className='sm:w-72 bg-gray-700 w-full text-white p-5 rounded-xl border-[3px] text-center hover:border-spacing-3 hover:border-secondary'>
+                    <div className='sm:w-72 bg-primary w-full text-white p-5 rounded-xl border-[3px] text-center hover:border-spacing-3 hover:border-secondary'>
                         <Title>Cart Total</Title>
                         <div className='mt-6'>
                             <b>Subtotal: </b>$-{cart.total} <br />
