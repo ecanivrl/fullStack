@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { FaShoppingCart } from "react-icons/fa";
 import { GiShoppingCart } from "react-icons/gi"
 
-const MenuItem = () => {
+const MenuItem = ({ product }) => {
     return (
         <div className="relative px-3 sm:px-0">
             <div className=" rounded-2xl">
@@ -13,25 +12,23 @@ const MenuItem = () => {
                         <Link href={"/product"}>
                         <div className="relative w-36 h-36 hover:scale-110 transition-all">
                             <Image
-                                src={"/images/pizza.png"}
+                                    src={product.img}
                                 alt=""
                                 layout="fill"
-                                objectFit="cover"
+                                    objectFit="contain"
+                                    className="rounded-full"
                                     priority
                             />
                         </div>
                         </Link>
                     </div>
                     <div className="p-[25px] text-ıtem">
-                        <h4 className="text-xl font-semibold">Delicious Pizza</h4>
+                        <h4 className="text-xl font-semibold">{product.title}</h4>
                         <p className="text-[15px]">
-                            It is not possible to reduce digital transformation to a few
-                            technologies, but the groundbreaking influence of web 2.0, mobile,
-                            broadband internet, cloud computing, digital media, big data,
-                            3D printers has started a new era.
+                            {product.desc}
                         </p>
                         <div className="flex justify-between items-center mt-4">
-                            <span>$20</span>
+                            <span>${product.prices[0]}</span>
                             <Link href={"/cart"}>
                                 <button className="btn-primary !bg-primary !w-10 !h-10 !rounded-full !p-0 grid place-content-center">
                                     <GiShoppingCart className=" hover:scale-150 duration-500 hover:text-secondary" size={20} />
