@@ -2,6 +2,14 @@ import axios from 'axios';
 import Image from 'next/image'
 
 const Index = ({ order }) => {
+    const status = order?.status;
+
+    const statusClass = (index) => {
+        if (index - status < 1) return "";
+        if (index - status === 1) return "animate-pulse";
+        if (index - status > 1) return "";
+    };
+
     return (
         <div className="">
             <div className='flex justify-center items-center flex-col p-10 min-h-[calc(100vh_-_373px)] min-w-[1000px]z'>
@@ -28,20 +36,24 @@ const Index = ({ order }) => {
                         </tbody>
                     </table>
                 </div>
-                <div className='flex sm:justify-between justify-center items-center w-full bg-primary  p-3 mt-10 flex-wrap gap-x-3 gap-y-10 mx-auto'>
-                    <div className='bg-secondary w-36 h-36 border-2 border-primary flex flex-col justify-center items-center '>
+                <div className={`flex sm:justify-between justify-center items-center w-full bg-primary  p-3 mt-10 flex-wrap gap-x-3 gap-y-10 mx-auto`}>
+                    <div className={`bg-secondary w-36 h-36 border-2 border-primary flex flex-col justify-center items-center
+                    ${statusClass(0)}`}>
                         <Image src="/images/paid.png" alt="paid" width={30} height={30} objectFit="contain" />
                         <span>PAYMENT</span>
                     </div>
-                    <div className='bg-secondary w-36 h-36 border-2 border-primary flex flex-col justify-center items-center '>
+                    <div className={`bg-secondary w-36 h-36 border-2 border-primary flex flex-col justify-center items-center
+                    ${statusClass(1)}`}>
                         <Image src="/images/bake.png" alt="paid" width={30} height={30} objectFit="contain" />
                         <span>PREPARİNG</span>
                     </div>
-                    <div className='bg-secondary w-36 h-36 border-2 border-primary flex flex-col justify-center items-center animate-pulse'>
+                    <div className={`bg-secondary w-36 h-36 border-2 border-primary flex flex-col justify-center items-center
+                    ${statusClass(2)}`}>
                         <Image src="/images/bike.png" alt="paid" width={30} height={30} objectFit="contain" />
                         <span>ONE THE WAY</span>
                     </div>
-                    <div className='bg-secondary w-36 h-36 border-2 border-primary flex flex-col justify-center items-center '>
+                    <div className={`bg-secondary w-36 h-36 border-2 border-primary flex flex-col justify-center items-center
+                    ${statusClass(3)}`}>
                         <Image src="/images/delivered.png" alt="paid" width={50} height={90} objectFit="contain" />
                         <span>DELIVERED</span>
                     </div>

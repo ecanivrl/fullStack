@@ -87,10 +87,10 @@ const Cart = ({ userList }) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {cart.products.map((product) => (
-                                    <tr key={product?._id} className='bg-primary hover:bg-secondary border-b-white border-b-2 transition-all'>
+                                        {cart.products.map((product, index) => (
+                                            <tr key={index} className='bg-primary hover:bg-secondary border-b-white border-b-2 transition-all'>
                                 <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white flex items-center gap-x-1 justify-center'>
-                                            <Image src={product.img} alt="pizza" width={50} height={50} />
+                                                    <Image src={product?.img} alt="pizza" width={50} height={50} />
                                             <span>{product.name}</span>
                                 </td>
                                         <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>
@@ -98,8 +98,8 @@ const Cart = ({ userList }) => {
                                                 <span key={item._id} >{item.text},</span>
                                             ))}
                                         </td>
-                                        <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>$-{product.price}</td>
-                                        <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>{product.quantity}</td>
+                                                <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>$-{product?.price}</td>
+                                                <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>{product?.quantity}</td>
                             </tr>
                                 ))}
                             </tbody>
