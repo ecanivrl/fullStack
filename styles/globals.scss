@@ -88,15 +88,16 @@ input::-webkit-inner-spin-button {
 .custom-vertical-scrollbar {
   &::-webkit-scrollbar {
     width: 4px;
+    height: 6px;
   }
 
   &::-webkit-scrollbar-track {
-    background: #fff5da;
+    background: #444;
     border-radius: 38px;
   }
-
+  
   &::-webkit-scrollbar-thumb {
-    background: #444;
+    background: #FFFF00;
     border-radius: 38px;
   }
 }

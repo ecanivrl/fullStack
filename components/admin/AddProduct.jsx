@@ -77,6 +77,9 @@ const AddProduct = ({ setIsProductModal }) => {
             if (res.status === 200) {
                 setIsProductModal(false)
                 toast.success("Ürün Oluşturuldu")
+                setTimeout(() => {
+                    window.location.reload()
+                }, 1300)
             }
 
         } catch (err) {
@@ -158,6 +161,14 @@ const AddProduct = ({ setIsProductModal }) => {
                                         <Input
                                             onChange={(e) => changePrice(e, 0)}
                                             type="number" className="!h-10" placeholder="small" />
+                                    </div>
+                                ) :
+                                    (
+                                    <div
+                                        className="flex justify-between gap-6 w-full md:flex-nowrap flex-wrap items-center">
+                                        <Input
+                                            onChange={(e) => changePrice(e, 0)}
+                                            type="number" className="!h-10" placeholder="small" />
                                         <Input
                                             onChange={(e) => changePrice(e, 1)}
                                             type="number" className="!h-10" placeholder="medium" />
@@ -165,14 +176,8 @@ const AddProduct = ({ setIsProductModal }) => {
                                             onChange={(e) => changePrice(e, 2)}
                                             type="number" className="!h-10" placeholder="large" />
                                     </div>
-                                ) : (
-                                    <div
-                                        className="flex justify-between gap-6 w-full md:flex-nowrap flex-wrap items-center">
-                                        <Input
-                                            onChange={(e) => changePrice(e, 0)}
-                                            type="number" className="!h-10" placeholder="small" />
-                                    </div>
-                                )}
+                                    )
+                                }
                             </div>
                             <div className="flex flex-col text-sm mt-2 w-full py-2">
                                 <span className="font-semibold mb-[2px]">Extra</span>
