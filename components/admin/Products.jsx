@@ -44,11 +44,11 @@ const Products = () => {
 
 
     return (
-        <div className='mx-auto w-full overflow-y-auto custom-vertical-scrollbar'>
+        <div className='mx-auto w-full overflow-auto custom-vertical-scrollbar'>
             <Title className="text-center mt-2 mx-auto mb-2">Products</Title>
-            <div className='w-full max-h-[360px] overflow-x-auto custom-vertical-scrollbar pb-3'>
-                <table className='text-sm text-center text-gray-500 mx-auto  rounded-t-2xl w-[670px] md:w-[1000px] overflow-x-auto custom-vertical-scrollbar'>
-                    <thead className='text-xs text-primary bg-secondary uppercase border-white border-b-8 '>
+            <div className='w-full max-h-[360px] overflow-auto custom-vertical-scrollbar px-2'>
+                <table className=' text-sm text-center text-gray-500 mx-auto rounded-t-2xl w-[97%] m-5'>
+                    <thead className='sticky top-0 z-10 text-xs text-primary bg-secondary uppercase border-white border-b-8 '>
                     <tr>
                         <th scope='col' className='py-3 px-6 hover:text-white'>IMAGE</th>
                         <th scope='col' className='py-3 px-6 hover:text-white'>ID</th>

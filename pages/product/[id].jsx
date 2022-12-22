@@ -7,10 +7,12 @@ import { GiDirectionSigns } from "react-icons/gi"
 import { addProduct } from "../../redux/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { useRouter } from 'next/router';
 import { toast } from "react-toastify";
 
 const Index = ({ food }) => {
 
+    const { push } = useRouter()
     const [prices, setPrices] = useState(food?.prices);
     const [price, setPrice] = useState(prices[0]);
     const [size, setSize] = useState(0);
@@ -47,10 +49,13 @@ const Index = ({ food }) => {
     const handleClick = () => {
         dispatch(addProduct({ ...food, extras, price, quantity: 1 }))
         toast.success(`${food.title} sepete eklendi`)
+        setTimeout(() => {
+            push("/cart")
+        }, 1500)
     }
 
     return (
-        <div className="flex h-screen items-center  flex-wrap px-2 sm:px-0 mb-40 md:mb-0 relative">
+        <div className="flex h-screen items-center gap-x-10 flex-wrap  sm:px-0 mb-40 md:mb-0 relative">
             <div className="relative md:flex-1 w-[60%] sm:h-[60%] h-[40%] mx-auto">
                 <Image
                     priority
@@ -62,6 +67,7 @@ const Index = ({ food }) => {
             </div>
             <div className="md:flex-1 md:text-start text-center mx-auto -mt-24">
                 <Title className="text-6xl mt-16 md:mt-0">{food?.title}</Title>
+
                 <span className="text-secondary text-2xl font-bold underline underline-offset-2 inline-block my-4">
                     ${price}
                 </span>
@@ -76,7 +82,8 @@ const Index = ({ food }) => {
                                 className="relative w-8 h-8 cursor-pointer"
                                 onClick={() => handleSize(0)}
                             >
-                                <Image
+                                <Image 
+                                    priority
                                     src={"/images/size.png"}
                                     alt="size"
                                     layout="fill"
@@ -91,7 +98,7 @@ const Index = ({ food }) => {
                                 className="relative w-12 h-12 cursor-pointer"
                                 onClick={() => handleSize(1)}
                             >
-                                <Image src={"/images/size.png"} alt="size" layout="fill" />
+                                <Image src={"/images/size.png"} alt="size" layout="fill" priority />
                                 <span className="spo -mt-3 -mr-2">medium</span>
                                 <div className="relative ">
                                     <span className="absolute top-[4px]  right-[14px] h-2 w-2 origin-top-left -rotate-90 rounded-bl-[120px] bg-secondary" />
@@ -101,7 +108,7 @@ const Index = ({ food }) => {
                                 className="relative w-16 h-16 cursor-pointer"
                                 onClick={() => handleSize(2)}
                             >
-                                <Image src={"/images/size.png"} alt="size" layout="fill" />
+                                <Image src={"/images/size.png"} alt="size" layout="fill" priority />
                                 <span className="spo -mt-1">large</span>
                                 <div className="relative ">
                                     <span className="absolute top-3  right-[5px] h-2 w-2 origin-top-left -rotate-90 rounded-bl-[120px] bg-secondary" />
@@ -112,7 +119,7 @@ const Index = ({ food }) => {
                 </div>
                 <div className="flex gap-x-4 my-6 md:justify-start justify-around">
                     {extraItems.map((item) => (
-                        <label className="flex items-center gap-x-1" key={item.id}>
+                        <label className="flex items-center gap-x-1" key={item._id}>
                             <input
                                 type="checkbox"
                                 className="w-5 h-5 accent-secondary"

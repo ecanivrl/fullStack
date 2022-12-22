@@ -101,3 +101,12 @@ input::-webkit-inner-spin-button {
     border-radius: 38px;
   }
 }
+
+.no-vertical-scrollbar {
+  // Chrome, Safari and Opera
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  scrollbar-width: 0; /* Firefox */
+}
