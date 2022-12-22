@@ -133,7 +133,7 @@ const AddProduct = ({ setIsProductModal }) => {
                             <div className="flex flex-col text-sm mt-4">
                                 <span className="font-semibold mb-[2px]">Description</span>
                                 <textarea
-                                    className="h-10 focus:bg-white border-secondary caret-secondary bg-white  w-full border  px-4 peer pt-3"
+                                    className="h-10 focus:bg-white outline-secondary border-secondary caret-secondary bg-white  w-full border  px-4 peer pt-3"
                                     placeholder="Write a title..."
                                     onChange={(e) => setDesc(e.target.value)}
                                 />

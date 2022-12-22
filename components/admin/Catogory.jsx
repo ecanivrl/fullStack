@@ -46,7 +46,6 @@ const Catogory = () => {
             if (confirm("Are you sure you want to delete this category?")) {
                 const result = await axios.delete(
                     `${process.env.NEXT_PUBLIC_API_URL}/categories/${id}`,);
-                    console.log(result)
                 toast.success(`${result.data.title} silindi`)
                 setCategories(categories.filter((cat) => cat._id !== id));
             }
