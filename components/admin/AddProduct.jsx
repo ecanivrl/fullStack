@@ -155,15 +155,7 @@ const AddProduct = ({ setIsProductModal }) => {
 
                             <div className="flex flex-col text-sm mt-4 w-full">
                                 <span className="font-semibold mb-[2px]">Prices</span>
-                                {category === "pizza" ? (
-                                    <div
-                                        className="flex justify-between gap-6 w-full md:flex-nowrap flex-wrap items-center">
-                                        <Input
-                                            onChange={(e) => changePrice(e, 0)}
-                                            type="number" className="!h-10" placeholder="small" />
-                                    </div>
-                                ) :
-                                    (
+
                                     <div
                                         className="flex justify-between gap-6 w-full md:flex-nowrap flex-wrap items-center">
                                         <Input
@@ -176,8 +168,7 @@ const AddProduct = ({ setIsProductModal }) => {
                                             onChange={(e) => changePrice(e, 2)}
                                             type="number" className="!h-10" placeholder="large" />
                                     </div>
-                                    )
-                                }
+
                             </div>
                             <div className="flex flex-col text-sm mt-2 w-full py-2">
                                 <span className="font-semibold mb-[2px]">Extra</span>

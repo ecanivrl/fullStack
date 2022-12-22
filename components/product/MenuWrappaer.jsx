@@ -43,4 +43,6 @@ const MenuWrappaer = ({ categoryList, productList }) => {
     );
 };
 
+
+
 export default MenuWrappaer;

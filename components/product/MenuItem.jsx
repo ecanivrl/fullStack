@@ -9,7 +9,7 @@ const MenuItem = ({ product }) => {
             <div className=" rounded-2xl">
                 <div className="bg-primary rounded-3xl relative ">
                     <div className="w-full  bg-ıtem h-[180px] grid place-content-center rounded-bl-[46px] rounded-tl-2xl rounded-tr-2xl">
-                        <Link href={"/product"}>
+                        <Link href={`/product/${product._id}`}>
                         <div className="relative w-36 h-36 hover:scale-110 transition-all">
                             <Image
                                     src={product.img}
