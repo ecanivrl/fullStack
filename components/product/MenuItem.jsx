@@ -22,7 +22,7 @@ const MenuItem = ({ product }) => {
                         </div>
                         </Link>
                     </div>
-                    <div className="p-[25px] text-ıtem">
+                    <div className="p-[25px] text-ıtem min-h-[225px]">
                         <h4 className="text-xl font-semibold">{product.title}</h4>
                         <p className="text-[15px]">
                             {product.desc}
