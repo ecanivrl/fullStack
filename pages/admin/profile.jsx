@@ -113,7 +113,7 @@ const Profile = () => {
                 {tabs === 1 && (<Order />)}
                 {tabs === 3 && (<Footer />)}
                 {isProductModal && <AddProduct setIsProductModal={setIsProductModal} />}
-                <button className="bg-secondary rounded-xl p-1 text-white flex items-center 
+                <button className="bg-secondary rounded-full p-2 text-white flex items-center 
                 absolute top-28 right-5 " onClick={() => setIsProductModal(true)}>Add
                     <IoIosAdd className='w-6 h-6' />
                 </button>
