@@ -41,9 +41,9 @@ const Search = ({ setIsSearchModal }) => {
 
 
     return (
-        <div className="w-full h-full bg-white/70 z-50 fixed flex justify-center items-center">
+        <div className="fixed -top-1 left-0 w-screen h-screen z-40 after:content-[''] after:w-screen after:h-screen after:bg-[#f3f3f3] after:absolute after:top-0 after:left-0 after:opacity-90 grid place-content-center">
             <OutsideClickHandler onOutsideClick={() => setIsSearchModal(false)}>
-                <div className="-mt-56 md:w-[600px] w-[370px]  bg-white rounded-3xl shadow-[1px_120px_230px_1px_rgb(55,164,145)] p-10 relative hover:border-secondary border ">
+                <div className="-mt-56 z-50 md:w-[600px] w-[370px]  bg-white rounded-3xl shadow-[0_0_530px_0_rgb(55,164,145)] p-10 relative  hover:shadow-secondary ">
                     <Title className="text-center">Search</Title>
 
                     <Input

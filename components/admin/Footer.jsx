@@ -1,33 +1,70 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Input from '../form/Input'
 import Title from '../ui/Title'
 import { useFormik } from "formik";
-import { useRouter } from 'next/router';
 import { footerSchema } from '../../schema/footer';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
-const Footer = () => {
 
-    const [linkAddress, setLinkAddress] = useState("");
-    const [iconName, setIconName] = useState("");
-    const [icons, setIcons] = useState([
-        "fa fa-facebook",
-        "fa fa-twitter",
-        "fa fa-instagram",
-    ]);
+const Footer = () => {  
+
+    const [iconName, setIconName] = useState("fa fa-");
+    const [linkAddress, setLinkAddress] = useState("https://");
+    const [footerData, setFooterData] = useState([]);
+    const [socialMediaLinks, setSocialMediaLinks] = useState([]);
+
+    useEffect(() => {
+        const getFooterData = async () => {
+            try {
+                const res = await axios.get(
+                    `${process.env.NEXT_PUBLIC_API_URL}/footer`
+                );
+                setFooterData(res.data[0]);
+                setSocialMediaLinks(res.data[0].socialMedia);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+        getFooterData();
+    }, []);
+
     const onSubmit = async (values, actions) => {
-        await new Promise((resolve) => setTimeout(resolve, 4000));
-        actions.resetForm();
+        try {
+            const res = await axios.put(
+                `${process.env.NEXT_PUBLIC_API_URL}/footer/${footerData._id}`,
+                {
+                    location: values.location,
+                    email: values.email,
+                    phoneNumber: values.phoneNumber,
+                    desc: values.desc,
+                    openingHours: {
+                        day: values.day,
+                        hour: values.time,
+                    },
+                    socialMedia: socialMediaLinks,
+                }
+            );
+            if (res.status === 200) {
+                toast.success("Footer Güncellendi", {
+                    autoClose: 1200
+                });
+            }
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     const { values, errors, touched, handleSubmit, handleChange, handleBlur } =
         useFormik({
+            enableReinitialize: true,
             initialValues: {
-                location: "",
-                email: "",
-                phoneNumber: "",
-                desc: "",
-                day: "",
-                time: "",
+                location: footerData?.location,
+                email: footerData?.email,
+                phoneNumber: footerData?.phoneNumber,
+                desc: footerData?.desc,
+                day: footerData?.openingHours?.day,
+                time: footerData?.openingHours?.hour,
             },
             onSubmit,
             validationSchema: footerSchema,
@@ -89,6 +126,24 @@ const Footer = () => {
         },
     ];
 
+    const handleCreate = (e) => {
+        setSocialMediaLinks([
+            ...footerData?.socialMedia,
+            {
+                icon: iconName,
+                link: linkAddress,
+            },
+        ]);
+        setLinkAddress("https://");
+        setIconName("fa fa-");
+    };
+
+    const Relo = () => {
+        setTimeout(() => {
+            window.location.reload()
+        }, 2000)
+    }
+
     return (
         <form
             onSubmit={handleSubmit}
@@ -106,10 +161,14 @@ const Footer = () => {
             </div>
             <div className="mt-4 gap-4">
                 <div className="flex items-center gap-4 mb-4">
-                    <Input placeholder="Link Address" value="https://" onChange="" />
                     <Input
-                        placeholder="Icon Name"
-                        defaulValue="fa fa-"
+                        placeholder="Link Address"
+                        onChange={(e) => setLinkAddress(e.target.value)}
+                        value={linkAddress}
+                    />
+                    <Input
+                        placeholder="Icon Name fa fa-"
+                        defaultValue="fa fa-"
                         onChange={(e) => setIconName(e.target.value)}
                         value={iconName}
                     />
@@ -118,18 +177,14 @@ const Footer = () => {
                 <div className='flex justify-between mt-10 gap-2'>
                     <button
                         className="btn-primary w-[50%]"
-                        type="button"
-                        onClick={() => {
-                            setIcons([...icons, iconName]);
-                            setIconName("fa fa-");
-                        }}
+                        type="button" onClick={handleCreate}
                     >
                         Add
                     </button>
                     <ul className="flex items-center gap-6">
-                        {icons.map((icon, index) => (
+                        {socialMediaLinks?.map((item, index) => (
                             <li key={index} className="flex items-center">
-                                <i className={`${icon} text-2xl`}></i>
+                                <i className={`${item.icon} text-2xl`}></i>
                                 <button
                                     className="text-danger"
                                     onClick={() => {
@@ -145,7 +200,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="w-full mt-10 flex  justify-center">
-                <button type="submit" className="cursor-pointer w-full flex items-center
+                <button onClick={Relo} type="submit" className="cursor-pointer w-full flex items-center
                  justify-center gap-x-3 border-2 text-primary bg-white hover:text-white hover:bg-secondary border-secondary
         px-2 py-1 rounded-2xl transition-all duration-300 ease-in font-bold">
                     Update

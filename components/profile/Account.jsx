@@ -14,8 +14,10 @@ const Account = ({ user }) => {
     const onSubmit = async (values, actions) => {
         try {
             const res = await axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/${user._id}`, values)
-            toast.success("Hesap Bilgileri güncelleniyor")
-            const refresh = setTimeout(ref, 1000)
+            toast.success("Hesap Bilgileri güncelleniyor", {
+                autoClose: "1200"
+            })
+            const refresh = setTimeout(ref, 2000)
             function ref(
             ) {
                 window.location.reload()

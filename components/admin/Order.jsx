@@ -41,7 +41,7 @@ const Order = () => {
         <div className='overflow-x-auto custom-vertical-scrollbar'>
             <Title className="text-center mb-5">Orders</Title>
             <div className='overflow-x-auto custom-vertical-scrollbar max-h-[330px] mx-auto w-full '>
-                <table className='m-5 text-sm text-center text-gray-500 mx-auto rounded-t-2xl w-[670px] md:w-[990px]  mx-3'>
+                <table className='m-5 text-sm text-center text-gray-500 mx-auto rounded-t-2xl w-[670px] md:w-[990px]'>
                     <thead className='sticky top-0 z-10 text-xs text-primary bg-secondary uppercase border-white border-b-8 '>
                     <tr>
                         <th scope='col' className='py-3 px-6 hover:text-white'>PRODUCT ID</th>
