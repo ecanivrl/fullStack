@@ -8,8 +8,8 @@ import { AiOutlineClose } from "react-icons/ai";
 import { BsCart3 } from "react-icons/bs"
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { useSelector } from "react-redux";
 import { GiShoppingCart } from "react-icons/gi"
+import { useSelector } from "react-redux";
 
 const Header = () => {
     const [isSearchModal, setIsSearchModal] = useState(false);
@@ -17,33 +17,34 @@ const Header = () => {
 
     const cart = useSelector((state) => state.cart)
 
+
     const router = useRouter();
 
     return (
         <div
             className={`h-[5.5rem] z-50 relative ${router.asPath === "/" ? "bg-transparent" : "bg-primary"
-                } `}
+                }  `}
         >
             <div className="container  mx-auto text-white flex justify-between items-center h-full ">
                 <span className="cursor-pointer"><Logo /></span>
                 <nav
-                    className={`sm:static absolute top-0 left-0 sm:w-auto sm:h-auto w-full h-screen sm:text-white text-black  sm:bg-transparent bg-white sm:flex hidden ${isMenuModal === true && "!grid place-content-center"
+                    className={`sm:static z-20 absolute top-0 left-0 sm:w-auto sm:h-auto w-full h-screen sm:text-white text-black  sm:bg-transparent bg-white sm:flex hidden ${isMenuModal === true && "!grid place-content-center"
                         }`}
                 >
                     <ul className="flex gap-x-2 sm:flex-row flex-col items-center">
-                        <li className={`px-[5px] py-[10px] uppercase hover:text-secondary cursor-pointer
+                        <li onClick={() => setIsMenuModal(false)} className={`px-[5px] py-[10px] uppercase hover:text-secondary cursor-pointer
                         ${router.asPath === "/" ? "text-secondary" : ""}`}>
                             <Link href="/">Home</Link>
                         </li>
-                        <li className={`px-[5px] py-[10px] uppercase hover:text-secondary cursor-pointer
+                        <li onClick={() => setIsMenuModal(false)} className={`px-[5px] py-[10px] uppercase hover:text-secondary cursor-pointer
                         ${router.asPath === "/menu" ? "text-secondary" : ""}`}>
                             <Link href="/menu">Menu</Link>
                         </li>
-                        <li className={`px-[5px] py-[10px] uppercase hover:text-secondary cursor-pointer
+                        <li onClick={() => setIsMenuModal(false)} className={`px-[5px] py-[10px] uppercase hover:text-secondary cursor-pointer
                         ${router.asPath === "/about" ? "text-secondary" : ""}`}>
                             <Link href="/about">About</Link>
                         </li>
-                        <li className={`px-[5px] py-[10px] uppercase hover:text-secondary cursor-pointer
+                        <li onClick={() => setIsMenuModal(false)} className={`px-[5px] py-[10px] uppercase hover:text-secondary cursor-pointer
                         ${router.asPath === "/reservation" ? "text-secondary" : ""}`}>
                             <Link href="/reservation">Book Table</Link>
                         </li>
@@ -52,7 +53,7 @@ const Header = () => {
                 <div className="flex gap-x-4 items-center">
                     <Link href="/auth/login">
                         <span className="cursor-pointer flex flex-col justify-center items-center gap-y-1">
-                            <FaUser className="lix" />
+                            <FaUser className={`lix ${router.asPath.includes("profile") && "text-secondary"}`} />
                             {/* {router.asPath === "/" ? (
                                 <i className="text-xs font-thin">Login</i>
                             ) : ("")} */}
@@ -88,10 +89,10 @@ const Header = () => {
                     </button>
                     {isMenuModal && (
                         <button
-                            className="absolute top-5 right-5"
+                            className="absolute top-5 right-5 z-20 sm:hidden inline-block"
                             onClick={() => setIsMenuModal(false)}
                         >
-                            <AiOutlineClose className="text-black lix w-6 h-6" />
+                            <AiOutlineClose className="text-black lix w-6 h-6 " />
                         </button>
                     )}
                 </div>

@@ -2,15 +2,37 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { GiShoppingCart } from "react-icons/gi"
+import { useSelector, useDispatch } from "react-redux";
+import { addProduct } from "../../redux/cartSlice";
+import { toast } from "react-toastify";
 
 const MenuItem = ({ product }) => {
+
+    const cart = useSelector((state) => state.cart);
+    const findCart = cart.products.find((item) => item._id === product._id);
+    const dispatch = useDispatch();
+
+    const handleClick = () => {
+        dispatch(
+            addProduct({
+                ...product,
+                extras: [{ text: "Eksta secilmedi" }],
+                price: product.prices[0],
+                quantity: 1,
+            })
+        );
+        toast.success(`${product.title} sepete eklendi`, {
+            autoClose: 1200
+        })
+    };
+
     return (
         <div className="relative px-3 sm:px-0">
             <div className=" rounded-2xl">
                 <div className="bg-primary rounded-3xl relative ">
                     <div className="w-full  bg-ıtem h-[180px] grid place-content-center rounded-bl-[46px] rounded-tl-2xl rounded-tr-2xl">
                         <Link href={`/product/${product._id}`}>
-                        <div className="relative w-36 h-36 hover:scale-110 transition-all">
+                            <div className="relative w-40 h-40 hover:scale-110 transition-all">
                             <Image
                                     src={product.img}
                                 alt=""
@@ -29,11 +51,12 @@ const MenuItem = ({ product }) => {
                         </p>
                         <div className="flex justify-between items-center mt-4">
                             <span>${product.prices[0]}</span>
-                            <Link href={"/cart"}>
-                                <button className="btn-primary !bg-primary !w-10 !h-10 !rounded-full !p-0 grid place-content-center">
-                                    <GiShoppingCart className=" hover:scale-150 duration-500 hover:text-secondary" size={20} />
+                            <button
+                                disabled={findCart}
+                                onClick={handleClick}
+                                className="btn-primary !bg-secondary hover:!bg-white !w-10 !h-10 !rounded-full !p-0 grid place-content-center">
+                                <GiShoppingCart className=" hover:scale-150 duration-500 text-primary " size={20} />
                             </button>
-                            </Link>
                         </div>
                     </div>
                 </div>

@@ -45,7 +45,7 @@ const Cart = ({ userList }) => {
                     }
                 }
             } else {
-                toast.error("Please login first.", {
+                toast.error("Giriş Yapmadan Ürün Satın alamazsınız. Lütfen Giriş Yapın", {
                     autoClose: 1000,
                 });
             }
@@ -94,8 +94,8 @@ const Cart = ({ userList }) => {
                                             <span>{product.name}</span>
                                 </td>
                                         <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>
-                                            {product.extras.map((item) => (
-                                                <span key={item._id} >{item.text},</span>
+                                                    {product.extras.map((item, index) => (
+                                                        <span key={index} >{item.text},</span>
                                             ))}
                                         </td>
                                                 <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>$-{product?.price}</td>
