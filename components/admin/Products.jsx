@@ -3,7 +3,7 @@ import Title from '../ui/Title'
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-
+import Link from "next/link";
 const Products = () => {
 
     const [products, setProducts] = useState([]);
@@ -59,10 +59,14 @@ const Products = () => {
                 </thead>
                 <tbody>
                         {products.length > 0 && products.map((product) => (
+
                             <tr key={product._id} className='bg-primary hover:bg-secondary transition-all border-b-white border-b-2'>
-                                <td className='py-4 px-6 font-medium whitespace-nowrap relative hover:text-white flex items-center gap-x-1 justify-center'>
-                                    <Image src={product.img} alt={product.title} height={50} width={50} />
+                                <Link href={`/product/${product._id}`}>
+                                    <td className='py-4 cursor-pointer px-6 font-medium whitespace-nowrap relative hover:text-white flex items-center gap-x-1 justify-center'>
+                                        <Image src={product.img} alt={product.title} height={50} width={50} className="hover:scale-125" />
                                 </td>
+                                </Link>
+
                                 <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>{product._id.substring(0, 6)}...</td>
                                 <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>{product.title}</td>
                                 <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>${product.prices[0]}</td>
