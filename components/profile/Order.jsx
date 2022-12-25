@@ -38,12 +38,11 @@ const Order = () => {
         getUsers();
     }, [session]);
     return (
-        <div className='overflow-x-auto mx-auto w-full lg:-mt-24 mt-0'>
-            <form className='sm:p-5 p-0 flex-1 mb-5 w-[1200px]'>
-            <Title className="text-center mt-2 mx-auto mb-2">Orders</Title>
-                <div className='overflow-x-auto scrollbar-none  mx-auto h-[378px] overflow-y-scroll'>
-                    <table className='text-sm text-center text-gray-500 mx-auto rounded-t-2xl w-full'>
-                    <thead className='text-xs text-gray-400 bg-gray-700 uppercase border-white border-b-8 '>
+        <div className='mx-auto md:mx-5 w-full overflow-auto custom-vertical-scrollbar lg:-mt-24'>
+            <Title className="text-center mt-6 mx-auto">Order</Title>
+            <div className='w-full max-h-[400px] overflow-auto custom-vertical-scrollbar px-2'>
+                <table className=' text-sm text-center text-gray-500 mx-auto rounded-t-2xl md:w-[97%] w-full m-5'>
+                    <thead className='sticky top-0 z-10 text-xs text-primary bg-secondary uppercase border-white border-b-8 '>
                         <tr>
                             <th scope='col' className='py-3 px-6 hover:text-white'>ID</th>
                             <th scope='col' className='py-3 px-6 hover:text-white'>ADDRESS</th>
@@ -54,14 +53,14 @@ const Order = () => {
                     </thead>
                     <tbody>
                             {orders.map((order) => (
-                                <tr key={order?._id} className='bg-gray-200 hover:bg-secondary transition-all border-b-gray-700 border-b-2'>
+                                <tr key={order?._id} className='bg-primary hover:bg-secondary transition-all border-b-white border-b-2'>
                             <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white flex items-center gap-x-1 justify-center'>
                                         <span>{order?._id.substring(0, 6)}...</span>
                             </td>
                                     <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>{order?.customer}</td>
                                     <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>23.12.2022</td>
                                     <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>${order?.total}</td>
-                                    <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>{status[order?.status]}</td>
+                                    <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>{order?.status}</td>
                         </tr>
                             ))}
 
@@ -69,8 +68,6 @@ const Order = () => {
                     </tbody>
                 </table>
             </div>
-
-        </form>
         </div>
 
     )

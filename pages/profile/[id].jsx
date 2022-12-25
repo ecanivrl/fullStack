@@ -32,7 +32,7 @@ const Profile = ({ user }) => {
     }, [session, push]);
 
     return (
-        <div className={`${tabs === 2 ? "" : ""} ${tabs === 0 ? "-mt-28 md:mt-0 " : ""}`}>
+        <div className={`${tabs === 2 ? "-mt-24 md:-mt-0" : ""} ${tabs === 0 ? "-mt-28 md:mt-0 " : ""}`}>
             <div className="flex px-10 min-h-[calc(100vh_-_233px)] flex-col md:flex-row py-20">
                 <div className={"md:w-80 w-full flex-shrink-0  mx-auto"}>
                     <div className="relative flex flex-col items-center px-10 py-5 border border-secondary
