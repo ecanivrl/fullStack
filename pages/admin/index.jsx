@@ -20,7 +20,7 @@ const Login = () => {
             );   
             if (res.status === 200) {
                 actions.resetForm();
-                toast.success("Admin Girişi Yapılıyor!");
+                toast.success("Admin Girişi Yapılıyor!", { autoClose: 1000 });
                 setTimeout(() => {
                 push("/admin/profile");
                 }, 1100)

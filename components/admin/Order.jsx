@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react'
 import Title from '../ui/Title'
 import axios from 'axios'
 import { useRouter } from 'next/router';
+import Image from 'next/image'
+import Link from "next/link";
+
 const Order = () => {
     const [orders, setOrders] = useState([]);
     const status = ["preparing", "on the way", "delivered"];
@@ -44,6 +47,7 @@ const Order = () => {
                 <table className='m-5 text-sm text-center text-gray-500 mx-auto rounded-t-2xl w-[670px] md:w-[990px]'>
                     <thead className='sticky top-0 z-10 text-xs text-primary bg-secondary uppercase border-white border-b-8 '>
                     <tr>
+                            <th scope='col' className='py-3 px-6 hover:text-white'>IMAGE</th>
                         <th scope='col' className='py-3 px-6 hover:text-white'>PRODUCT ID</th>
                         <th scope='col' className='py-3 px-6 hover:text-white'>CUSTOMER</th>
                         <th scope='col' className='py-3 px-6 hover:text-white'>TOTAL</th>
@@ -58,9 +62,13 @@ const Order = () => {
                                 .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
                                 .map((order) => (
                                     <tr key={order?._id} className='bg-primary hover:bg-secondary transition-all border-b-white border-b-2'>
-                                        <td className='py-4 px-6 font-medium whitespace-nowrap relative hover:text-white flex items-center gap-x-1 justify-center'>
-                                            {order?._id.substring(0, 6)}...
-                        </td>
+                                        <Link href={`/order/${order._id}`}>
+                                            <td className='py-4 cursor-pointer px-6 font-medium whitespace-nowrap relative hover:text-white flex items-center gap-x-1 justify-center'>
+                                                <Image src={order.img} alt={""} height={50} width={50} className="hover:scale-125" />
+                                            </td>
+                                        </Link>
+                                        <td className='py-4 px-6 font-medium whitespace-nowrap  hover:text-white '>
+                                            {order?._id.substring(0, 6)}...</td>
                                         <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>{order?.customer}</td>
                                         <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>${order?.total}</td>
                                         <td className='py-4 px-6 font-medium whitespace-nowrap hover:text-white'>${order?.method === 0 ? "Cash" : "Card"}</td>
