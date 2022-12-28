@@ -63,7 +63,7 @@ const Products = () => {
                             <tr key={product._id} className='bg-primary hover:bg-secondary transition-all border-b-white border-b-2'>
                                 <Link href={`/product/${product._id}`}>
                                     <td className='py-4 cursor-pointer px-6 font-medium whitespace-nowrap relative hover:text-white flex items-center gap-x-1 justify-center'>
-                                        <Image src={product.img} alt={product.title} height={50} width={50} className="hover:scale-125" />
+                                        <Image src={product.img} alt={product.title} height={50} width={50} />
                                 </td>
                                 </Link>
 

@@ -4,7 +4,8 @@ import MenuItem from "./MenuItem";
 import { useState, useEffect } from "react";
 
 const MenuWrappaer = ({ categoryList, productList }) => {
-
+    // console.log(categoryList)
+    // console.log(productList)
     const [active, setActive] = useState(0)
     const [filter, setFilter] = useState([]);
     const [productlLimit, setProductLimit] = useState(3)
@@ -27,7 +28,7 @@ const MenuWrappaer = ({ categoryList, productList }) => {
                     {categoryList && categoryList.map((category, index) => (
                         <button
                             onClick={() => { setActive(index); setProductLimit(3) }}
-                            key={category._id} className={`${index === active ? "btn-menu" : "hover:bg-secondary/25 px-6 py-2 rounded-3xl"}`}>
+                            key={index} className={`${index === active ? "btn-menu" : "hover:bg-secondary/25 px-6 py-2 rounded-3xl"}`}>
                             {category.title}</button>
                     ))}
                 </div>
