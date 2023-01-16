@@ -39,11 +39,13 @@ const MenuWrappaer = ({ categoryList, productList }) => {
                         <MenuItem key={product._id} product={product} />
                     ))}
             </div>
-            <div className="w-full flex justify-center items-center">
+            {filter.length > 3 && productlLimit < filter.length && (
+                <div className="w-full flex justify-center items-center">
                 <button
                     onClick={() => setProductLimit(productlLimit + 3)}
                     className="btn-primary">Wiev More</button>
             </div>
+            )}
         </div>
     );
 };
